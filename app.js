@@ -12,6 +12,8 @@ var user = require('./routes/user');
 var login = require('./routes/login');
 var admin = require('./routes/admin');
 var notice = require('./routes/notice');
+var register = require('./routes/join');
+var detail = require('./routes/detail');
 
 var app = express();
 
@@ -33,8 +35,10 @@ app.use('/join', join);
 app.use('/product', product);
 app.use('/user', user);
 app.use('/login', login);
+app.use('/register', register);
 app.use('/admin', admin);
 app.use('/notice', notice);
+app.use('/detail', detail);
 
 app.use('/hi', (req, res, next)=>{
     res.send('Hi? <img src="./1024.png">');
