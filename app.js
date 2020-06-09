@@ -14,6 +14,8 @@ var admin = require('./routes/admin');
 var notice = require('./routes/notice');
 var register = require('./routes/join');
 var detail = require('./routes/detail');
+var checkout = require('./routes/checkout');
+var cart = require('./routes/cart');
 
 var app = express();
 
@@ -39,6 +41,8 @@ app.use('/register', register);
 app.use('/admin', admin);
 app.use('/notice', notice);
 app.use('/detail', detail);
+app.use('/checkout', checkout);
+app.use('/cart', cart);
 
 app.use('/hi', (req, res, next)=>{
     res.send('Hi? <img src="./1024.png">');
