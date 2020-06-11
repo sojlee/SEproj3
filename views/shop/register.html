@@ -180,7 +180,12 @@
                 <h6>REGISTER</h6>
                 <form id="joinForm" action="/register" method="post">
                   <ul class="row">
-
+                    <!-- Name -->
+                    <li class="col-md-6">
+                      <label> *아이디
+                        <input type="text" name="id" id="id" value="" placeholder="">
+                      </label>
+                    </li>
                     <!-- Name -->
                     <li class="col-md-6">
                       <label> *이름
@@ -230,6 +235,12 @@
                       <!-- ADDRESS -->
                       <label>*상세 주소
                         <input type="text" name="address2" id="address2" value="" placeholder="">
+                      </label>
+                    </li>
+                    <li class="col-md-6">
+                      <!-- ADDRESS -->
+                      <label>추천인 아이디
+                        <input type="text" name="friend" id="friend" value="" placeholder="">
                       </label>
                     </li>
 
@@ -328,44 +339,79 @@
 <script src="./js/jquery-1.11.3.min.js"></script>
 <script type="text/javascript">
   $(function(){
-    $("#loginBtn").click(
+    $("#joinBtn").click(
         				function(){
-                  if($("#name").val()=="")
+                  if($("#id").val()=="")
                   {
-                    alert("이름을 꼭 입력 하세요.");
-                    $("#uid").focus();
+                    alert("아이디를 꼭 입력 하세요.");
+                    $("#id").focus();
                     return;
                   }
 
                   if($("#name").val()=="")
                   {
                     alert("이름을 꼭 입력 하세요.");
-                    $("#uid").focus();
+                    $("#name").focus();
+                    return;
+                  }
+
+                  if($("#birth").val()=="")
+                  {
+                    alert("생년월일을 꼭 입력 하세요.");
+                    $("#birth").focus();
+                    return;
+                  }
+
+                  if($("#email").val()=="")
+                  {
+                    alert("이메일을 꼭 입력 하세요.");
+                    $("#email").focus();
+                    return;
+                  }
+
+                  if($("#phone").val()=="")
+                  {
+                    alert("핸드폰 번호를 꼭 입력 하세요.");
+                    $("#phone").focus();
                     return;
                   }
 
                   if($("#passwd").val()=="")
                   {
                     alert("비밀번호를 꼭 입력 하세요.");
-                    $("#pwd").focus();
+                    $("#passwd").focus();
                     return;
                   }
 
-                  if($("#passwd").val()=="")
+                  if($("#pwdcheck").val()=="")
                   {
-                    alert("비밀번호를 꼭 입력 하세요.");
-                    $("#pwd").focus();
+                    alert("비밀번호 확인을 위해 꼭 입력 하세요.");
+                    $("#pwdcheck").focus();
                     return;
                   }
 
-                  if($("#passwd").val()=="")
+                  if($("#passwd").val()!=$("#pwdcheck").val())
                   {
-                    alert("비밀번호를 꼭 입력 하세요.");
-                    $("#pwd").focus();
+                    alert("비밀번호가 일치하지 않습니다.");
+                    $("#pwdcheck").focus();
                     return;
                   }
 
-                  $("#loginForm").submit();
+                  if($("#address1").val()=="")
+                  {
+                    alert("주소를 꼭 입력 하세요.");
+                    $("#address1").focus();
+                    return;
+                  }
+
+                  if($("#address2").val()=="")
+                  {
+                    alert("상세주소를 꼭 입력 하세요.");
+                    $("#address2").focus();
+                    return;
+                  }
+
+                  $("#joinForm").submit();
                 })
             });
 </script>
