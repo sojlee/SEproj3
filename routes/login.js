@@ -6,7 +6,7 @@ router.get('/', function(req, res, next) {
   res.render('./shop/login.html');
 });
 
-/* GET users listing. */
+/* Post users listing. */
 router.post('/', function(req, res, next) {
   console.log('req.body : ' + JSON.stringify(req.body));
   // mysql상으로 확인
