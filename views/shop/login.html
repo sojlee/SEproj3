@@ -85,6 +85,7 @@
             </ul>
           </div>
 
+
           <!-- Nav Right -->
           <div class="nav-right">
             <ul class="navbar-right">
@@ -157,11 +158,6 @@
         <h4>LOGIN</h4>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
           Sed feugiat, tellus vel tristique posuere, diam</p>
-        <ol class="breadcrumb">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">PAGES</a></li>
-          <li class="active">LOGIN</li>
-        </ol>
       </div>
     </div>
   </section>
@@ -182,42 +178,31 @@
 
               <!-- ESTIMATE SHIPPING & TAX -->
               <div class="col-sm-7">
-                <h6>LOGIN YOUR ACCOUNT</h6>
-                <form>
+                <h6>LOGIN</h6>
+                <form id="loginForm" action="/login" method="post">
                   <ul class="row">
 
                     <!-- Name -->
                     <li class="col-md-12">
-                      <label> USERNAME
-                        <input type="text" name="first-name" value="" placeholder="">
+                      <label> ID
+                        <input type="text" name="id" id="uid" value="" placeholder="">
                       </label>
                     </li>
                     <!-- LAST NAME -->
                     <li class="col-md-12">
                       <label> PASSWORD
-                        <input type="password" name="last-name" value="" placeholder="">
+                        <input type="password" name="password" id="pwd" value="" placeholder="">
                       </label>
                     </li>
 
+                    <a href="/register"> 아아직 회원이 아니신가요?</a><br><br>
+
                     <!-- LOGIN -->
                     <li class="col-md-4">
-                      <button type="submit" class="btn">LOGIN</button>
+                      <button type="button" id="loginBtn" class="btn">LOGIN</button>
                     </li>
 
-                    <!-- CREATE AN ACCOUNT -->
-                    <li class="col-md-4">
-                      <div class="checkbox margin-0 margin-top-20">
-                        <input id="checkbox1" class="styled" type="checkbox">
-                        <label for="checkbox1"> Stay me Login</label>
-                      </div>
-                    </li>
 
-                    <!-- FORGET PASS -->
-                    <li class="col-md-4">
-                      <div class="checkbox margin-0 margin-top-20 text-right">
-                        <a href="#.">Forget Password</a>
-                      </div>
-                    </li>
                   </ul>
                 </form>
 
@@ -354,6 +339,27 @@
 
 </div>
 <script src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $("#loginBtn").click(
+        				function(){
+                  if($("#uid").val()=="")
+                  {
+                    alert("아이디를 꼭 입력 하세요.");
+                    $("#uid").focus();
+                    return;
+                  }
+                  if($("#pwd").val()=="")
+                  {
+                    alert("비밀번호를 꼭 입력 하세요.");
+                    $("#pwd").focus();
+                    return;
+                  }
+
+                  $("#loginForm").submit();
+                })
+            });
+</script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/own-menu.js"></script>
 <script src="./js/jquery.lighter.js"></script>

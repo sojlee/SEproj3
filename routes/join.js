@@ -6,4 +6,11 @@ router.get('/', function(req, res, next) {
   res.render('./shop/register.html');
 });
 
+/* Post users listing. */
+router.post('/', function(req, res, next) {
+  console.log('req.body : ' + JSON.stringify(req.body));
+  // mysql상으로 확인
+	res.json(req.body);
+});
+
 module.exports = router;

@@ -85,6 +85,7 @@
             </ul>
           </div>
 
+
           <!-- Nav Right -->
           <div class="nav-right">
             <ul class="navbar-right">
@@ -155,13 +156,7 @@
     <div class="position-center-center">
       <div class="container">
         <h4>REGISTER</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
-          Sed feugiat, tellus vel tristique posuere, diam</p>
-        <ol class="breadcrumb">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Pages</a></li>
-          <li class="active">REGISTER</li>
-        </ol>
+        <p>반갑습니다.</p>
       </div>
     </div>
   </section>
@@ -183,82 +178,64 @@
               <!-- ESTIMATE SHIPPING & TAX -->
               <div class="col-sm-12">
                 <h6>REGISTER</h6>
-                <form>
+                <form id="joinForm" action="/register" method="post">
                   <ul class="row">
 
                     <!-- Name -->
                     <li class="col-md-6">
-                      <label> *FIRST NAME
-                        <input type="text" name="first-name" value="" placeholder="">
+                      <label> *이름
+                        <input type="text" name="name" id="name" value="" placeholder="">
                       </label>
                     </li>
                     <!-- LAST NAME -->
                     <li class="col-md-6">
-                      <label> *LAST NAME
-                        <input type="text" name="last-name" value="" placeholder="">
+                      <label> *생년월일
+                        <input type="text" name="birth" id="birth" value="" placeholder="">
                       </label>
                     </li>
 
                     <!-- EMAIL ADDRESS -->
                     <li class="col-md-6">
-                      <label> *EMAIL ADDRESS
-                        <input type="text" name="contry-state" value="" placeholder="">
+                      <label> *이메일
+                        <input type="text" name="email" id="email" value="" placeholder="">
                       </label>
                     </li>
                     <!-- PHONE -->
                     <li class="col-md-6">
-                      <label> *PHONE
-                        <input type="text" name="postal-code" value="" placeholder="">
+                      <label> *핸드폰 번호
+                        <input type="text" name="phone" id="phone" value="" placeholder="">
                       </label>
                     </li>
 
                     <!-- LAST NAME -->
                     <li class="col-md-6">
-                      <label> *PASSWORD
-                        <input type="password" name="last-name" value="" placeholder="">
+                      <label> *비밀번호
+                        <input type="password" name="passwd" id="passwd" value="" placeholder="">
                       </label>
                     </li>
 
                     <!-- LAST NAME -->
                     <li class="col-md-6">
-                      <label> *PASSWORD
-                        <input type="password" name="last-name" value="" placeholder="">
+                      <label> *비밀번호 확인
+                        <input type="password" name="pwdcheck" id="pwdcheck" value="" placeholder="">
                       </label>
                     </li>
                     <li class="col-md-6">
                       <!-- ADDRESS -->
-                      <label>*ADDRESS
-                        <input type="text" name="address" value="" placeholder="">
+                      <label>*주소
+                        <input type="text" name="address1" id="address1" value="" placeholder="">
                       </label>
                     </li>
                     <li class="col-md-6">
                       <!-- ADDRESS -->
-                      <label>*ADDRESS
-                        <input type="text" name="address" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- COUNTRY -->
-                    <li class="col-md-6">
-                      <label> COUNTRY
-                        <select class="selectpicker" name="contry-state">
-                          <option>COUNTRY</option>
-                          <option>Country 2</option>
-                          <option>Country 3</option>
-                        </select>
-                      </label>
-                    </li>
-
-                    <!-- TOWN/CITY -->
-                    <li class="col-md-6">
-                      <label>*TOWN/CITY
-                        <input type="text" name="town" value="" placeholder="">
+                      <label>*상세 주소
+                        <input type="text" name="address2" id="address2" value="" placeholder="">
                       </label>
                     </li>
 
                     <!-- PHONE -->
                     <li class="col-md-6">
-                      <button type="submit" class="btn">REGISTER NOW</button>
+                      <button type="button" id="joinBtn" class="btn">REGISTER NOW</button>
                     </li>
                   </ul>
                 </form>
@@ -349,6 +326,49 @@
 
 </div>
 <script src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $("#loginBtn").click(
+        				function(){
+                  if($("#name").val()=="")
+                  {
+                    alert("이름을 꼭 입력 하세요.");
+                    $("#uid").focus();
+                    return;
+                  }
+
+                  if($("#name").val()=="")
+                  {
+                    alert("이름을 꼭 입력 하세요.");
+                    $("#uid").focus();
+                    return;
+                  }
+
+                  if($("#passwd").val()=="")
+                  {
+                    alert("비밀번호를 꼭 입력 하세요.");
+                    $("#pwd").focus();
+                    return;
+                  }
+
+                  if($("#passwd").val()=="")
+                  {
+                    alert("비밀번호를 꼭 입력 하세요.");
+                    $("#pwd").focus();
+                    return;
+                  }
+
+                  if($("#passwd").val()=="")
+                  {
+                    alert("비밀번호를 꼭 입력 하세요.");
+                    $("#pwd").focus();
+                    return;
+                  }
+
+                  $("#loginForm").submit();
+                })
+            });
+</script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/own-menu.js"></script>
 <script src="./js/jquery.lighter.js"></script>
