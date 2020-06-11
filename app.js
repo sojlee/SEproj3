@@ -2,6 +2,7 @@ var createError = require('http-errors');
 var express = require('express');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
@@ -16,6 +17,7 @@ var register = require('./routes/join');
 var detail = require('./routes/detail');
 var checkout = require('./routes/checkout');
 var cart = require('./routes/cart');
+var logout = require('./routes/logout');
 
 var app = express();
 
@@ -30,7 +32,18 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname+'/public'));
 
+app.use(session({
+  key: 'sid',
+  secret: 'secret',
+  resave: false,
+  saveUninitialized: true,
+  cookie: {
+    maxAge: 24000 * 60 * 60
+  }
+}));
+
 app.use('/', indexRouter);
+app.use("/logout", logout);
 app.use('/users', usersRouter);
 app.use('/test', test);
 app.use('/join', join);
