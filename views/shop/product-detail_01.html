@@ -98,7 +98,7 @@
                 </ul>
               </li>
 
-              <!-- USER BASKET -->
+              <!-- USER BASKET 장바구니 : SQL을 통해서 가져와야 됨 -->
               <li class="dropdown user-basket"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
                 <ul class="dropdown-menu">
                   <li>
@@ -128,42 +128,12 @@
                   </li>
                 </ul>
               </li>
-
-              <!-- SEARCH BAR -->
-              <li class="dropdown"> <a href="javascript:void(0);" class="search-open"><i class=" icon-magnifier"></i></a>
-                <div class="search-inside animated bounceInUp"> <i class="icon-close search-close"></i>
-                  <div class="search-overlay"></div>
-                  <div class="position-center-center">
-                    <div class="search">
-                      <form>
-                        <input type="search" placeholder="Search Shop">
-                        <button type="submit"><i class="icon-check"></i></button>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-              </li>
             </ul>
           </div>
         </nav>
       </div>
     </div>
   </header>
-
-  <!--======= SUB BANNER =========-->
-  <section class="sub-bnr" data-stellar-background-ratio="0.5">
-    <div class="position-center-center">
-      <div class="container">
-        <h4>WOOD CHAIR</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
-          Sed feugiat, tellus vel tristique posuere, diam</p>
-        <ol class="breadcrumb">
-          <li><a href="#">Home</a></li>
-          <li class="active">Data</li>
-        </ol>
-      </div>
-    </div>
-  </section>
 
   <!-- Content -->
   <div id="content">
@@ -178,35 +148,29 @@
 
             <!-- Popular Images Slider -->
             <div class="col-md-7">
-
-              <!-- Images Slider -->
-              <div class="images-slider">
-                <ul class="slides">
-                  <li data-thumb="images/large-img-1.jpg"> <img class="img-responsive" src="./images/large-img-1.jpg"  alt=""> </li>
-                  <li data-thumb="images/large-img-2.jpg"> <img class="img-responsive" src="./images/large-img-2.jpg"  alt=""> </li>
-                  <li data-thumb="images/large-img-3.jpg"> <img class="img-responsive" src="./images/large-img-3.jpg"  alt=""> </li>
-                </ul>
-              </div>
+              <img class="img-responsive" src="./images/large-img-1.jpg"  alt="">
             </div>
 
             <!-- COntent -->
             <div class="col-md-5">
-              <h4>wood chair</h4>
-              <span class="price"><small>$</small>299</span>
+              <h4>프리지아</h4>
+              <span class="price">2,000 원</span>
 
               <!-- Sale Tags -->
               <div class="on-sale"> 10% <span>OFF</span> </div>
               <ul class="item-owner">
-                <li>Designer :<span> ABC Art</span></li>
-                <li>Brand:<span> LimeWood</span></li>
+                <li>원산지 :<span> 한국</span></li>
               </ul>
 
-              <!-- Item Detail -->
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum finibus ligula a scelerisque gravida. Nullam laoreet tortor ac maximus alique met, consectetur adipiscing elit. Vestibulum finibus ligula a scelerisque gravida. Nullam</p>
+              <!-- 평점 : 리뷰 평점 평균-->
+              <div class="some-info">
+                <h5>평점 : 3.5/5.0</h5>
+              </div>
 
               <!-- Short By -->
               <div class="some-info">
                 <ul class="row margin-top-30">
+                  <li class="col-xs-4">상품 수량 선택<br>(최대 10송이)</li>
                   <li class="col-xs-4">
                     <div class="quinty">
                       <!-- QTY -->
@@ -214,38 +178,32 @@
                         <option>1</option>
                         <option>2</option>
                         <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
                       </select>
                     </div>
                   </li>
+                  <br>
+                  
+                </ul>
+               
 
-                  <!-- COLORS -->
-                  <li class="col-xs-8">
-                    <ul class="colors-shop">
-                      <li><span class="margin-right-20">Colors</span></li>
-                      <li><a href="#." style="background:#958170;"></a></li>
-                      <li><a href="#." style="background:#c9a688;"></a></li>
-                      <li><a href="#." style="background:#c9c288;"></a></li>
-                      <li><a href="#." style="background:#a7c988;"></a></li>
-                      <li><a href="#." style="background:#9ed66b;"></a></li>
-                      <li><a href="#." style="background:#6bd6b1;"></a></li>
-                      <li><a href="#." style="background:#82c2dc;"></a></li>
-                      <li><a href="#." style="background:#8295dc;"></a></li>
-                    </ul>
-                  </li>
-
+                <ul class="row margin-top-30">
                   <!-- ADD TO CART -->
-                  <li class="col-xs-6"> <a href="#." class="btn">ADD TO CART</a> </li>
-
-                  <!-- LIKE -->
-                  <li class="col-xs-6"> <a href="#." class="like-us"><i class="icon-heart"></i></a> </li>
+                  <li class="col-xs-6"> <a href="#." class="btn">ADD TO CART</a></li>
                 </ul>
 
                 <!-- INFOMATION -->
                 <div class="inner-info">
                   <h6>DELIVERY INFORMATION</h6>
-                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum finibus ligula a scelerisque gravida. Nullam laoreet tortor ac maximus alique met, consectetur adipiscing elit. </p>
-                  <h6>SHIPPING & RETURNS</h6>
-                  <h6>SHARE THIS PRODUCT</h6>
+                  <p>평일 18시 이전에 끝난 주문건에 대해서는 당일 배송을 원칙으로 합니다. 이후는 익일에 배송을 해드립니다.</p>
+                  <h6>EXCAHNGE & RETURNS</h6>
+                  <p>상품 불량 및 파손, 오배송 등은 교환 및 반품이 가능합니다. 그리고 상품 출고시에 취소 및 환불은 불가능합니다.</p>
                 </div>
               </div>
             </div>
@@ -253,47 +211,23 @@
         </div>
 
         <!--======= PRODUCT DESCRIPTION =========-->
-        <div class="item-decribe">
-          <!-- Nav tabs -->
+      <div class="item-decribe"> 
+         <!-- Nav tabs -->
           <ul class="nav nav-tabs animate fadeInUp" data-wow-delay="0.4s" role="tablist">
             <li role="presentation" class="active"><a href="#descr" role="tab" data-toggle="tab">DESCRIPTION</a></li>
-            <li role="presentation"><a href="#review" role="tab" data-toggle="tab">REVIEW (03)</a></li>
-            <li role="presentation"><a href="#tags" role="tab" data-toggle="tab">INFORMATION</a></li>
+            <li role="presentation"><a href="#review" role="tab" data-toggle="tab">REVIEWS</a></li>
           </ul>
-
-          <!-- Tab panes -->
-          <div class="tab-content animate fadeInUp" data-wow-delay="0.4s">
-            <!-- DESCRIPTION -->
-            <div role="tabpanel" class="tab-pane fade in active" id="descr">
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut sed lectus id nisi interdum mollis. Nam congue tellus quis elit mattis congue. Aenean eu massa sed mauris hendrerit ornare sed eget ante.
-                Vestibulum id eros quam. Nunc volutpat at magna gravida eleifend. Phasellus sit amet nisi tempus, tincidunt elit ac, tempor metus. <br>
-              </p>
-              <h6>THE SIMPLE FACTS</h6>
-              <ul>
-                <li>
-                  <p>Praesent faucibus, leo vitae maximus dictum,</p>
-                </li>
-                <li>
-                  <p> Donec porta ut lectus </p>
-                </li>
-                <li>
-                  <p> Phasellus maximus velit id nisl</p>
-                </li>
-                <li>
-                  <p> Quisque a tellus et sapien aliquam sus</p>
-                </li>
-                <li>
-                  <p> Donec porta ut lectus </p>
-                </li>
-                <li>
-                  <p> Phasellus maximus velit id nisl</p>
-                </li>
-              </ul>
-            </div>
-
-            <!-- REVIEW -->
-            <div role="tabpanel" class="tab-pane fade" id="review">
-              <h6>3 REVIEWS FOR SHIP YOUR IDEA</h6>
+        
+        <!-- Tab panes -->
+        <div class="tab-content animate fadeInUp" data-wow-delay="0.4s"> 
+          <!-- DESCRIPTION -->
+          <div role="tabpanel" class="tab-pane fade in active" id="descr">
+            <p>저희 농장에서 기르는 프리지아 노란색 꽃입니다. 꽃말은 '천진난만'과 '자기자랑', '청함'과 '순결', '차분한 사랑'과 '영원한 우정', '순진','새 출발을 응원합니다'.</p>
+          </div>
+          
+          <!-- REVIEW -->
+          <div role="tabpanel" class="tab-pane fade" id="review">
+            <h6>3 REVIEWS FOR SHIP YOUR IDEA</h6>
 
               <!-- REVIEW PEOPLE 1 -->
               <div class="media">
@@ -367,11 +301,10 @@
 
         <!-- Main Heading -->
         <div class="heading text-center">
-          <h4>YOU MAY LIKE IT</h4>
-          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
-          Sed feugiat, tellus vel tristique posuere, diam</span> </div>
+          <h4>상품추천</h4>
+          <p>저희 농장에서 인기 있고 추천드리는 꽃들입니다.</p> </div>
 
-        <!-- Popular Item Slide -->
+        <!-- Popular Item Slide : 가장 많이 팔리는 5개의 꽃들을 추천-->
         <div class="papular-block block-slide">
 
           <!-- Item -->
@@ -386,11 +319,11 @@
               </div>
             </div>
             <!-- Item Name -->
-            <div class="item-name"> <a href="#.">stone cup</a>
-              <p>Lorem ipsum dolor sit amet</p>
+            <div class="item-name"> <a href="#.">꽃1</a>
+              <p>꽃1의 설명</p>
             </div>
             <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
+            <span class="price">299</span> </div>
 
           <!-- Item -->
           <div class="item">
@@ -404,11 +337,11 @@
               </div>
             </div>
             <!-- Item Name -->
-            <div class="item-name"> <a href="#.">gray bag</a>
-              <p>Lorem ipsum dolor sit amet</p>
+            <div class="item-name"> <a href="#.">꽃2</a>
+              <p>꽃2의 설명</p>
             </div>
             <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
+            <span class="price">299</span> </div>
 
           <!-- Item -->
           <div class="item">
@@ -422,11 +355,11 @@
               </div>
             </div>
             <!-- Item Name -->
-            <div class="item-name"> <a href="#.">chiar</a>
-              <p>Lorem ipsum dolor sit amet</p>
+            <div class="item-name"> <a href="#.">꽃3</a>
+              <p>꽃3의 설명</p>
             </div>
             <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
+            <span class="price">299</span> </div>
 
           <!-- Item -->
           <div class="item">
@@ -440,26 +373,12 @@
               </div>
             </div>
             <!-- Item Name -->
-            <div class="item-name"> <a href="#.">STool</a>
-              <p>Lorem ipsum dolor sit amet</p>
+            <div class="item-name"> <a href="#.">꽃4</a>
+              <p>꽃4의 설명</p>
             </div>
             <!-- Price -->
-            <span class="price"><small>$</small>299</span> </div>
+            <span class="price">299</span> </div>
         </div>
-      </div>
-    </section>
-
-    <!-- About -->
-    <section class="small-about padding-top-150 padding-bottom-150">
-      <div class="container">
-
-        <!-- Main Heading -->
-        <div class="heading text-center">
-          <h4>about PAVSHOP</h4>
-          <p>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere odio luctus non. Nulla lacinia,
-            eros vel fermentum consectetur, risus purus tempc, et iaculis odio dolor in ex. </p>
-        </div>
-
       </div>
     </section>
 
@@ -470,10 +389,9 @@
       <!-- ABOUT Location -->
       <div class="col-md-3">
         <div class="about-footer"> <img class="margin-bottom-30" src="./images/logo-foot.png" alt="" >
-          <p><i class="icon-pointer"></i> Street No. 12, Newyork 12, <br>
-            MD - 123, USA.</p>
-          <p><i class="icon-call-end"></i> 1.800.123.456789</p>
-          <p><i class="icon-envelope"></i> info@PAVSHOP.com</p>
+          <p><i class="icon-pointer"></i> 서울특별시 노원구 광운로 20</p>
+          <p><i class="icon-call-end"></i> 02-940-5114</p>
+          <p><i class="icon-envelope"></i> http://www.kw.ac.kr/</p>
         </div>
       </div>
 
@@ -482,10 +400,8 @@
         <h6>HELPFUL LINKS</h6>
         <ul class="link">
           <li><a href="#."> Products</a></li>
-          <li><a href="#."> Find a Store</a></li>
           <li><a href="#."> Features</a></li>
           <li><a href="#."> Privacy Policy</a></li>
-          <li><a href="#."> Blog</a></li>
           <li><a href="#."> Press Kit </a></li>
         </ul>
       </div>
@@ -495,11 +411,9 @@
         <h6>SHOP</h6>
         <ul class="link">
           <li><a href="#."> About Us</a></li>
-          <li><a href="#."> Career</a></li>
           <li><a href="#."> Shipping Methods</a></li>
           <li><a href="#."> Contact</a></li>
           <li><a href="#."> Support</a></li>
-          <li><a href="#."> Retailer</a></li>
         </ul>
       </div>
 
@@ -510,7 +424,6 @@
           <li><a href="#."> Login</a></li>
           <li><a href="#."> My Account</a></li>
           <li><a href="#."> My Cart</a></li>
-          <li><a href="#."> Wishlist</a></li>
           <li><a href="#."> Checkout</a></li>
         </ul>
       </div>
