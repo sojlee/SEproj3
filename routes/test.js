@@ -1,9 +1,26 @@
 var express = require('express');
 var router = express.Router();
-
-/* GET home page. */ 
+var mysql = require('mysql');
+var dbConfig = require('./dbConfig');
+var pool = mysql.createPool({
+	connectionLimit: 5,
+	host: dbConfig.host,
+	port: dbConfig.port,
+	user: dbConfig.user,
+	password: dbConfig.password,
+	database: dbConfig.database
+});
+/* GET home page. */
 router.get('/', function(req, res, next) {
-		res.send('This is test, <img src="./images/1024.png">');
+		pool.getConnection(function(err, conn) {
+		var sqlForSelectList = "SELECT * FROM user";
+		conn.query(sqlForSelectList, function(err, rows) {
+			if(err) console.log("err: " + err);
+			console.log("rows : " + JSON.stringify(rows));
+			res.send(JSON.stringify(rows));
+			conn.release();
+		});
+	});
 });
 
 router.get('/test', function(req, res, next) {
