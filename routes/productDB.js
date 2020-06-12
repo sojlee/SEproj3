@@ -39,7 +39,20 @@ router.get('/', function(req, res, next) {
         connection.query(sqlForSelectList, function (err, rows){
             if (err) console.error("err : " + err);
             console.log("rows : " + JSON.stringify(rows));
-						res.render('./admin/productDB.html');
+						var p_code = new Array();
+						var p_name = new Array();
+						var p_price = new Array();
+						var p_amount = new Array();
+						var p_update = new Array();
+
+						for (var i = 0; i < rows.length; i++){
+							p_code[i] = rows[i].p_code;
+							p_name[i] = rows[i].p_name;
+							p_price[i] = rows[i].p_price;
+							p_amount[i] = rows[i].p_amount;
+							p_update[i] = rows[i].update_date;
+						}
+						res.render('./admin/table-data.html', {rows:rows.length, p_code:p_code, p_name:p_name, p_price:p_price, p_amount:p_amount, p_update:p_update} );
             connection.release();
 
             // Don't use the connection here, it has been returned to the pool.
