@@ -8,22 +8,22 @@
         <meta name="keywords" content="admin,dashboard">
         <meta name="author" content="skcats">
         <!-- The above 6 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        
+
         <!-- Title -->
         <title>관리 페이지</title>
 
         <!-- Styles -->
         <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
-        <link href="/assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-        <link href="/assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-        <link href="/assets/plugins/icomoon/style.css" rel="stylesheet">
-        <link href="/assets/plugins/uniform/css/default.css" rel="stylesheet"/>
-        <link href="/assets/plugins/switchery/switchery.min.css" rel="stylesheet"/>
-        <link href="/assets/plugins/nvd3/nv.d3.min.css" rel="stylesheet">  
-      
+        <link href="./assets/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+        <link href="./assets/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+        <link href="./assets/plugins/icomoon/style.css" rel="stylesheet">
+        <link href="./assets/plugins/uniform/css/default.css" rel="stylesheet"/>
+        <link href="./assets/plugins/switchery/switchery.min.css" rel="stylesheet"/>
+        <link href="./assets/plugins/nvd3/nv.d3.min.css" rel="stylesheet">
+
         <!-- Theme Styles -->
-        <link href="/assets/css/ecaps.min.css" rel="stylesheet">
-        <link href="/assets/css/custom.css" rel="stylesheet">
+        <link href="./assets/css/ecaps.min.css" rel="stylesheet">
+        <link href="./assets/css/custom.css" rel="stylesheet">
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -33,12 +33,12 @@
         <![endif]-->
     </head>
     <body>
-        
+
         <!-- Page Container -->
         <div class="page-container">
             <!-- Page Sidebar -->
             <div class="page-sidebar">
-                <a class="logo-box" href="/admin/">
+                <a class="logo-box" href="/admin">
                     <span>관리 페이지</span>
                     <i class="icon-radio_button_unchecked" id="fixed-sidebar-toggle-button"></i>
                     <i class="icon-close" id="sidebar-toggle-button-close"></i>
@@ -81,7 +81,7 @@
                     </div>
                 </div>
             </div><!-- /Page Sidebar -->
-            
+
             <!-- Page Content -->
             <div class="page-content">
                 <!-- Page Header -->
@@ -107,9 +107,9 @@
                                     <i class="fa fa-angle-down"></i>
                                 </button>
                             </div>
-                        
+
                             <!-- Collect the nav links, forms, and other content for toggling -->
-                        
+
                             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                                 <ul class="nav navbar-nav">
                                     <li><a href="javascript:void(0)" id="collapsed-sidebar-toggle-button"><i class="fa fa-bars"></i></a></li>
@@ -135,13 +135,9 @@
                             <td>상품 재고</td>
                             <td>상품 등록 날짜</td>
                         </tr>
-                        <%
-                            for(var i=0; i<rows.length; i++)
-                            {
-                                var oneItem = rows[i];
-                        %>
-                            <tr>
-                                <td><%=oneItem.p_code%></td>
+
+                        <tr>
+                          <td><%=oneItem.p_code%></td>
                                 <td><%=oneItem.p_name%></td>
                                 <td><%=oneItem.p_desc%></td>
                                 <td><%=oneItem.p_img%></td>
@@ -149,13 +145,11 @@
                                 <td><%=oneItem.p_amount%></td>
                                 <td><%=oneItem.update_date%></td>
                             </tr>
-                        <%
-                            }
-                        %>
+
                     </table>
 
 
-                    
+
                     <!-- Main Wrapper -->
                     <div class="page-footer">
                         <p>Made by rlouol</p>
@@ -163,24 +157,24 @@
                 </div>
             </div><!-- /Page Content -->
         </div><!-- /Page Container -->
-        
-        
+
+
         <!-- Javascripts -->
-        <script src="/assets/plugins/jquery/jquery-3.1.0.min.js"></script>
-        <script src="/assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-        <script src="/assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-        <script src="/assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>
-        <script src="/assets/plugins/switchery/switchery.min.js"></script>
-        <script src="/assets/plugins/d3/d3.min.js"></script>
-        <script src="/assets/plugins/nvd3/nv.d3.min.js"></script>
-        <script src="/assets/plugins/flot/jquery.flot.min.js"></script>
-        <script src="/assets/plugins/flot/jquery.flot.time.min.js"></script>
-        <script src="/assets/plugins/flot/jquery.flot.symbol.min.js"></script>
-        <script src="/assets/plugins/flot/jquery.flot.resize.min.js"></script>
-        <script src="/assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
-        <script src="/assets/plugins/flot/jquery.flot.pie.min.js"></script>
-        <script src="/assets/plugins/chartjs/chart.min.js"></script>
-        <script src="/assets/js/ecaps.min.js"></script>
-        <script src="/assets/js/pages/dashboard.js"></script>
+        <script src="./assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+        <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <script src="./assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="./assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>
+        <script src="./assets/plugins/switchery/switchery.min.js"></script>
+        <script src="./assets/plugins/d3/d3.min.js"></script>
+        <script src="./assets/plugins/nvd3/nv.d3.min.js"></script>
+        <script src="./assets/plugins/flot/jquery.flot.min.js"></script>
+        <script src="./assets/plugins/flot/jquery.flot.time.min.js"></script>
+        <script src="./assets/plugins/flot/jquery.flot.symbol.min.js"></script>
+        <script src="./assets/plugins/flot/jquery.flot.resize.min.js"></script>
+        <script src="./assets/plugins/flot/jquery.flot.tooltip.min.js"></script>
+        <script src="./assets/plugins/flot/jquery.flot.pie.min.js"></script>
+        <script src="./assets/plugins/chartjs/chart.min.js"></script>
+        <script src="./assets/js/ecaps.min.js"></script>
+        <script src="./assets/js/pages/dashboard.js"></script>
     </body>
 </html>

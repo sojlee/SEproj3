@@ -93,9 +93,16 @@
               <!-- USER INFO -->
               <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
                 <ul class="dropdown-menu">
+                  <% if(session.email){%>
                   <li><a href="/cart">MY CART</a></li>
+                  <li><a href="/checkout">ORDER LIST</a></li>
                   <li><a href="/info">ACCOUNT INFO</a></li>
-                  <li><a href="/login">LOG IN</a></li>
+                  <li><a href="/logout">LOGOUT</a></li>
+                  <%} else {%>
+                  <li><a href="/login">MY CART</a></li>
+                  <li><a href="/login">ACCOUNT INFO</a></li>
+                  <li><a href="/login">LOGIN</a></li>
+                  <%}%>
                 </ul>
               </li>
 
