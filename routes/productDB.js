@@ -13,8 +13,8 @@ var pool = mysql.createPool({
 });
 var fs = require('fs');         // 파일 삭제 구현 목적
 
-/*
-// 이미지 업로드 관련 설정 부분 
+
+// 이미지 업로드 관련 설정 부분
 var multer = require('multer');
 var app = express();
 
@@ -29,24 +29,23 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage }); // 파일 저장 위치를 storage 함수로 지정
 // 이미지 업로드 관련 설정 부분 끝
-*/
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	pool.getConnection(function (err, connection) {
         if(err) throw err;
-        res.render('./admin/productDB');
         // Use the connection
         var sqlForSelectList = "SELECT p_code, p_name, p_desc, p_img, p_price, p_amount, update_date FROM product";
         connection.query(sqlForSelectList, function (err, rows){
             if (err) console.error("err : " + err);
             console.log("rows : " + JSON.stringify(rows));
-            
+						res.render('./admin/productDB.html');
             connection.release();
-      
+
             // Don't use the connection here, it has been returned to the pool.
         });
     });
-  
+
 });
 
 module.exports = router;
@@ -72,11 +71,11 @@ router.post('/write', upload.single('imgFile'), function(req,res,next){
     var title = req.body.title;
     var content = req.body.content;
     var passwd = req.body.passwd;
-    
+
     pool.getConnection(function (err, connection) {
         // Use the connection
-        
-        var imageurl = imgurl;  
+
+        var imageurl = imgurl;
         var datas = [creator_id,title,content, imageurl, passwd];
         console.log(datas);
 
@@ -206,7 +205,7 @@ router.get('/delete', function(req, res, next){
 });
 
 // 글삭제 로직 처리 POST
-router.post('/delete', function(req,res,next) 
+router.post('/delete', function(req,res,next)
 {
     var idx = req.body.idx;
     var passwd = req.body.passwd;
@@ -224,7 +223,7 @@ router.post('/delete', function(req,res,next)
 
     pool.getConnection(function(err,connection) {
         var sql = "delete from board where idx=? and passwd=?";
-        connection.query(sql, datas, function (err, result) 
+        connection.query(sql, datas, function (err, result)
         {
             console.log(result);
             if(err) console.error("글 삭제 중 에러 발생 err : ", + err);

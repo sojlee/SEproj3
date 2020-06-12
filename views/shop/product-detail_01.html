@@ -92,9 +92,17 @@
               <!-- USER INFO -->
               <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
                 <ul class="dropdown-menu">
+                  <% if(session.email){%>
                   <li><a href="/cart">MY CART</a></li>
+                  <li><a href="/checkout">ORDER LIST</a></li>
                   <li><a href="/info">ACCOUNT INFO</a></li>
-                  <li><a href="/login">LOG IN</a></li>
+                  <li><a href="/logout">LOGOUT</a></li>
+                  <%} else {%>
+                  <li><a href="/login">MY CART</a></li>
+                  <li><a href="/login">ACCOUNT INFO</a></li>
+                  <li><a href="/login">LOGIN</a></li>
+                  <li><a href="/register">REGISTER</a><li>
+                  <%}%>
                 </ul>
               </li>
 
@@ -189,9 +197,9 @@
                     </div>
                   </li>
                   <br>
-                  
+
                 </ul>
-               
+
 
                 <ul class="row margin-top-30">
                   <!-- ADD TO CART -->
@@ -211,20 +219,20 @@
         </div>
 
         <!--======= PRODUCT DESCRIPTION =========-->
-      <div class="item-decribe"> 
+      <div class="item-decribe">
          <!-- Nav tabs -->
           <ul class="nav nav-tabs animate fadeInUp" data-wow-delay="0.4s" role="tablist">
             <li role="presentation" class="active"><a href="#descr" role="tab" data-toggle="tab">DESCRIPTION</a></li>
             <li role="presentation"><a href="#review" role="tab" data-toggle="tab">REVIEWS</a></li>
           </ul>
-        
+
         <!-- Tab panes -->
-        <div class="tab-content animate fadeInUp" data-wow-delay="0.4s"> 
+        <div class="tab-content animate fadeInUp" data-wow-delay="0.4s">
           <!-- DESCRIPTION -->
           <div role="tabpanel" class="tab-pane fade in active" id="descr">
             <p>저희 농장에서 기르는 프리지아 노란색 꽃입니다. 꽃말은 '천진난만'과 '자기자랑', '청함'과 '순결', '차분한 사랑'과 '영원한 우정', '순진','새 출발을 응원합니다'.</p>
           </div>
-          
+
           <!-- REVIEW -->
           <div role="tabpanel" class="tab-pane fade" id="review">
             <h6>3 REVIEWS FOR SHIP YOUR IDEA</h6>

@@ -13,7 +13,7 @@ var pool = mysql.createPool({
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('./shop/product-detail_01.html');
+  res.render('./shop/product-detail_01.html', {session:req.session});
 });
 
 module.exports = router;
