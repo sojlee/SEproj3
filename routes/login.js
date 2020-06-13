@@ -15,7 +15,7 @@ var pool = mysql.createPool({
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.render('./shop/login.html');
+  res.render('./shop/login.html', {session:req.session});
 });
 
 /* Post users listing. */

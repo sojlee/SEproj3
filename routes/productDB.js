@@ -9,12 +9,13 @@ var pool = mysql.createPool({
 	port: dbConfig.port,
 	user: dbConfig.user,
 	password: dbConfig.password,
-	database: dbConfig.database
+	database: dbConfig.database,
+	dateStrings:'date'
 });
 var fs = require('fs');         // 파일 삭제 구현 목적
 
-/*
-// 이미지 업로드 관련 설정 부분 
+
+// 이미지 업로드 관련 설정 부분
 var multer = require('multer');
 var app = express();
 
@@ -29,25 +30,85 @@ var storage = multer.diskStorage({
 });
 var upload = multer({ storage: storage }); // 파일 저장 위치를 storage 함수로 지정
 // 이미지 업로드 관련 설정 부분 끝
-*/
+
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	pool.getConnection(function (err, connection) {
         if(err) throw err;
-        res.render('./admin/productDB');
         // Use the connection
         var sqlForSelectList = "SELECT p_code, p_name, p_desc, p_img, p_price, p_amount, update_date FROM product";
         connection.query(sqlForSelectList, function (err, rows){
             if (err) console.error("err : " + err);
             console.log("rows : " + JSON.stringify(rows));
-            
+						var p_code = new Array();
+						var p_name = new Array();
+						var p_price = new Array();
+						var p_amount = new Array();
+						var p_update = new Array();
+
+						for (var i = 0; i < rows.length; i++){
+							p_code[i] = rows[i].p_code;
+							p_name[i] = rows[i].p_name;
+							p_price[i] = rows[i].p_price;
+							p_amount[i] = rows[i].p_amount;
+							p_update[i] = rows[i].update_date;
+						}
+						res.render('./admin/table-data.html', {rows:rows.length, p_code:p_code, p_name:p_name, p_price:p_price, p_amount:p_amount, p_update:p_update} );
             connection.release();
-      
+
             // Don't use the connection here, it has been returned to the pool.
         });
     });
-  
+
 });
+
+router.get('/update/:p_code', function(req, res, next) {
+	var p_code = req.params.p_code;
+	pool.getConnection(function (err, connection) {
+				if(err) throw err;
+				// Use the connection
+				var sqlForSelectList = "SELECT p_code, p_name, p_desc, p_img, p_price, p_amount, update_date FROM product where p_code = ?";
+				connection.query(sqlForSelectList, p_code, function (err, rows){
+						if (err) console.error("err : " + err);
+						console.log("rows : " + JSON.stringify(rows));
+					 res.render('./admin/form-elements.html', {rows:rows[0]} );
+						connection.release();
+
+						// Don't use the connection here, it has been returned to the pool.
+				});
+		});
+});
+
+router.post('/update', function(req, res, next) {
+	var p_code = req.body.p_code;
+	var p_name = req.body.p_name;
+	var p_desc = req.body.p_desc;
+	var p_amount = req.body.p_amount;
+	var p_price = req.body.p_price;
+//	var p_img = req.body.p_img;
+	var datas = [p_name, p_desc, p_amount, p_price, p_code];
+	console.log(datas);
+
+	pool.getConnection(function (err, connection) {
+				if(err) throw err;
+				// Use the connection
+				var sqlForSelectList = "update product set p_name=?, p_desc=?, p_amount=?, p_price=? where p_code = ?";
+				connection.query(sqlForSelectList, datas, function (err, rows){
+						if (err) console.error("err : " + err);
+						console.log("rows : " + JSON.stringify(rows));
+						if(rows.affectedRows==0){
+			 				res.send("<script> alert('관리자에게 문의하세요.'); history.back();</script>");
+			 			}
+			 			else{
+			 				res.redirect('/productDB');
+			 			}
+						connection.release();
+
+						// Don't use the connection here, it has been returned to the pool.
+				});
+		});
+});
+
 
 module.exports = router;
 
@@ -72,11 +133,11 @@ router.post('/write', upload.single('imgFile'), function(req,res,next){
     var title = req.body.title;
     var content = req.body.content;
     var passwd = req.body.passwd;
-    
+
     pool.getConnection(function (err, connection) {
         // Use the connection
-        
-        var imageurl = imgurl;  
+
+        var imageurl = imgurl;
         var datas = [creator_id,title,content, imageurl, passwd];
         console.log(datas);
 
@@ -206,7 +267,7 @@ router.get('/delete', function(req, res, next){
 });
 
 // 글삭제 로직 처리 POST
-router.post('/delete', function(req,res,next) 
+router.post('/delete', function(req,res,next)
 {
     var idx = req.body.idx;
     var passwd = req.body.passwd;
@@ -224,7 +285,7 @@ router.post('/delete', function(req,res,next)
 
     pool.getConnection(function(err,connection) {
         var sql = "delete from board where idx=? and passwd=?";
-        connection.query(sql, datas, function (err, result) 
+        connection.query(sql, datas, function (err, result)
         {
             console.log(result);
             if(err) console.error("글 삭제 중 에러 발생 err : ", + err);

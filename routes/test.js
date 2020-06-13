@@ -12,19 +12,10 @@ var pool = mysql.createPool({
 });
 /* GET home page. */
 router.get('/', function(req, res, next) {
-		pool.getConnection(function(err, conn) {
-		var sqlForSelectList = "SELECT * FROM user";
-		conn.query(sqlForSelectList, function(err, rows) {
-			if(err) console.log("err: " + err);
-			console.log("rows : " + JSON.stringify(rows));
-			res.send(JSON.stringify(rows));
-			conn.release();
-		});
-	});
+		res.render('index.html', {session:req.session});
 });
 
 router.get('/test', function(req, res, next) {
-		res.render('test', {title:'안녕.'});
+		res.render('./admin/imgtest.html');
 });
-
 module.exports = router;

@@ -13,12 +13,7 @@ var pool = mysql.createPool({
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-	if(req.session.email){
-		res.render('./shop/index.html', { logincheck: 'LOGOUT', loginlink:'/logout'});
-	}
-	else{
-		res.render('./shop/index.html', { logincheck: 'LOGIN', loginlink:'/login'});
-	}
+	res.render('./shop/index.html', {session : req.session})
 });
 
 module.exports = router;

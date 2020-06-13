@@ -93,9 +93,17 @@
               <!-- USER INFO -->
               <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
                 <ul class="dropdown-menu">
+                  <% if(session.email){%>
                   <li><a href="/cart">MY CART</a></li>
+                  <li><a href="/checkout">ORDER LIST</a></li>
                   <li><a href="/info">ACCOUNT INFO</a></li>
-                  <li><a href="/login">LOG IN</a></li>
+                  <li><a href="/logout">LOGOUT</a></li>
+                  <%} else {%>
+                  <li><a href="/login">MY CART</a></li>
+                  <li><a href="/login">ACCOUNT INFO</a></li>
+                  <li><a href="/login">LOGIN</a></li>
+                  <li><a href="/register">REGISTER</a><li>
+                  <%}%>
                 </ul>
               </li>
 
@@ -195,7 +203,7 @@
                       </label>
                     </li>
 
-                    <a href="/register"> 아아직 회원이 아니신가요?</a><br><br>
+                    <a href="/register"> 아직 회원이 아니신가요?</a><br><br>
 
                     <!-- LOGIN -->
                     <li class="col-md-4">
@@ -257,19 +265,6 @@
           <li><a href="#."><i class="icon-social-youtube"></i></a></li>
           <li><a href="#."><i class="icon-social-dribbble"></i></a></li>
         </ul>
-      </div>
-    </section>
-
-    <!-- News Letter -->
-    <section class="news-letter padding-top-150 padding-bottom-150">
-      <div class="container">
-        <div class="heading light-head text-center margin-bottom-30">
-          <h4>NEWSLETTER</h4>
-          <span>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere odi </span> </div>
-        <form>
-          <input type="email" placeholder="Enter your email address" required>
-          <button type="submit">SEND ME</button>
-        </form>
       </div>
     </section>
   </div>

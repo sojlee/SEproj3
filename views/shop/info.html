@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="">
+<meta name="author" content="M_Adnan">
+<title>PAVSHOP - Multipurpose eCommerce HTML5 Template</title>
+
+<!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
+<link rel="stylesheet" type="text/css" href="./rs-plugin/css/settings.css" media="screen" />
+
+<!-- Bootstrap Core CSS -->
+<link href="./css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Custom CSS -->
+<link href="./css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<link href="./css/ionicons.min.css" rel="stylesheet">
+<link href="./css/main.css" rel="stylesheet">
+<link href="./css/style.css" rel="stylesheet">
+<link href="./css/responsive.css" rel="stylesheet">
+
+<!-- JavaScripts -->
+<script src="./js/modernizr.js"></script>
+
+<!-- Online Fonts -->
+<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Playfair+Display:400,700,900' rel='stylesheet' type='text/css'>
+
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+
+<!-- LOADER -->
+<div id="loader">
+  <div class="position-center-center">
+    <div class="ldr"></div>
+  </div>
+</div>
+
+<!-- Wrap -->
+<div id="wrap">
+
+  <!-- header -->
+  <header>
+    <div class="sticky">
+      <div class="container">
+
+        <!-- Logo -->
+        <div class="logo"> <a href="index.html"><img class="img-responsive" src="images/logo.png" alt="" ></a> </div>
+        <nav class="navbar ownmenu">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"><i class="fa fa-navicon"></i></span> </button>
+          </div>
+
+           <!-- NAV -->
+          <div class="collapse navbar-collapse" id="nav-open-btn">
+            <ul class="nav">
+              <li> <a href="/"> Home</a> </li>
+              </li>
+              <li class="dropdown"> <a href="/product" class="dropdown-toggle" data-toggle="dropdown">Flowers</a>
+                <ul class="dropdown-menu">
+                  <li> <a href="/product">a flower</a> </li>
+                  <li> <a href="shop_01.html">bouquet </a> </li>
+                  <li> <a href="shop_02.html">wreath</a> </li>
+                  <li> <a href="shop_03.html">fake flowers</a> </li>
+                </ul>
+              </li>
+              <!-- Two Link Option -->
+              <li class="dropdown"> <a href="/notice" class="dropdown-toggle" data-toggle="dropdown">notice</a>
+                <ul class="dropdown-menu">
+                      <li> <a href="shop_01.html">notice</a></li>
+                      <li> <a href="shop_01.html">event</a></li>
+                </ul>
+              </li>
+
+              <li> <a href="contact.html"> contact</a> </li>
+            </ul>
+          </div>
+
+          <!-- Nav Right -->
+          <div class="nav-right">
+            <ul class="navbar-right">
+
+              <!-- USER INFO -->
+              <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
+                <ul class="dropdown-menu">
+                  <% if(session.email){%>
+                  <li><a href="/cart">MY CART</a></li>
+                  <li><a href="/checkout">ORDER LIST</a></li>
+                  <li><a href="/info">ACCOUNT INFO</a></li>
+                  <li><a href="/logout">LOGOUT</a></li>
+                  <%} else {%>
+                  <li><a href="/login">MY CART</a></li>
+                  <li><a href="/login">ACCOUNT INFO</a></li>
+                  <li><a href="/login">LOGIN</a></li>
+                  <li><a href="/register">REGISTER</a><li>
+                  <%}%>
+                </ul>
+              </li>
+
+              <!-- USER BASKET -->
+              <li class="dropdown user-basket"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <div class="media-left">
+                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="images/cart-img-1.jpg" alt="..."> </a> </div>
+                    </div>
+                    <div class="media-body">
+                      <h6 class="media-heading">WOOD CHAIR</h6>
+                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
+                  </li>
+                  <li>
+                    <div class="media-left">
+                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="images/cart-img-2.jpg" alt="..."> </a> </div>
+                    </div>
+                    <div class="media-body">
+                      <h6 class="media-heading">WOOD STOOL</h6>
+                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
+                  </li>
+                  <li>
+                    <h5 class="text-center">SUBTOTAL: 258.00 USD</h5>
+                  </li>
+                  <li class="margin-0">
+                    <div class="row">
+                      <div class="col-xs-6"> <a href="shopping-cart.html" class="btn">VIEW CART</a></div>
+                      <div class="col-xs-6 "> <a href="checkout.html" class="btn">CHECK OUT</a></div>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+
+              <!-- SEARCH BAR -->
+              <li class="dropdown"> <a href="javascript:void(0);" class="search-open"><i class=" icon-magnifier"></i></a>
+                <div class="search-inside animated bounceInUp"> <i class="icon-close search-close"></i>
+                  <div class="search-overlay"></div>
+                  <div class="position-center-center">
+                    <div class="search">
+                      <form>
+                        <input type="search" placeholder="Search Shop">
+                        <button type="submit"><i class="icon-check"></i></button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <!--======= SUB BANNER =========-->
+  <section class="sub-bnr" data-stellar-background-ratio="0.5">
+    <div class="position-center-center">
+      <div class="container">
+        <h4>contact us now</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
+          Sed feugiat, tellus vel tristique posuere, diam</p>
+        <ol class="breadcrumb">
+          <li><a href="#">Home</a></li>
+          <li class="active">contact</li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <!-- Content -->
+  <div id="content">
+
+    <!--======= CONATACT  =========-->
+    <section class="contact padding-top-100 padding-bottom-100">
+      <div class="container">
+        <div class="contact-form">
+          <h5>My account informaion</h5>
+          <div class="row">
+            <div class="col-md-8">
+
+              <!--======= Success Msg =========-->
+              <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
+
+              <!--======= FORM  =========-->
+              <form role="form" id="contact_form" class="contact-form" method="post" onSubmit="return false">
+                <ul class="row">
+                  <li class="col-sm-6">
+                    <label>id</label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label><%=rows.id%></label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label>이름</label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label><%=rows.name%></label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label>이메일</label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label><%=rows.email%></label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label>핸드폰</label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label><%=rows.phone%></label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label>생년월일</label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label><%=rows.birth%></label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label>주소</label>
+                  </li>
+                  <li class="col-sm-6">
+                    <label><%=address%></label>
+                  </li>
+                </ul>
+              </form>
+            </div>
+
+            <!--======= ADDRESS INFO  =========-->
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--======= MAP =========-->
+
+    <!-- About -->
+    <section class="small-about padding-top-150 padding-bottom-150">
+      <div class="container">
+
+        <!-- Main Heading -->
+        <div class="heading text-center">
+          <h4>about PAVSHOP</h4>
+          <p>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere odio luctus non. Nulla lacinia,
+            eros vel fermentum consectetur, risus purus tempc, et iaculis odio dolor in ex. </p>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+
+  <!--======= FOOTER =========-->
+  <footer>
+    <div class="container">
+
+      <!-- ABOUT Location -->
+      <div class="col-md-3">
+        <div class="about-footer"> <img class="margin-bottom-30" src="images/logo-foot.png" alt="" >
+          <p><i class="icon-pointer"></i> Street No. 12, Newyork 12, <br>
+            MD - 123, USA.</p>
+          <p><i class="icon-call-end"></i> 1.800.123.456789</p>
+          <p><i class="icon-envelope"></i> info@PAVSHOP.com</p>
+        </div>
+      </div>
+
+      <!-- HELPFUL LINKS -->
+      <div class="col-md-3">
+        <h6>HELPFUL LINKS</h6>
+        <ul class="link">
+          <li><a href="#."> Products</a></li>
+          <li><a href="#."> Find a Store</a></li>
+          <li><a href="#."> Features</a></li>
+          <li><a href="#."> Privacy Policy</a></li>
+          <li><a href="#."> Blog</a></li>
+          <li><a href="#."> Press Kit </a></li>
+        </ul>
+      </div>
+
+      <!-- SHOP -->
+      <div class="col-md-3">
+        <h6>SHOP</h6>
+        <ul class="link">
+          <li><a href="#."> About Us</a></li>
+          <li><a href="#."> Career</a></li>
+          <li><a href="#."> Shipping Methods</a></li>
+          <li><a href="#."> Contact</a></li>
+          <li><a href="#."> Support</a></li>
+          <li><a href="#."> Retailer</a></li>
+        </ul>
+      </div>
+
+      <!-- MY ACCOUNT -->
+      <div class="col-md-3">
+        <h6>MY ACCOUNT</h6>
+        <ul class="link">
+          <li><a href="#."> Login</a></li>
+          <li><a href="#."> My Account</a></li>
+          <li><a href="#."> My Cart</a></li>
+          <li><a href="#."> Wishlist</a></li>
+          <li><a href="#."> Checkout</a></li>
+        </ul>
+      </div>
+
+      <!-- Rights -->
+
+      <div class="rights">
+        <p>©  2017 PAVSHOP All right reserved. </p>
+        <div class="scroll"> <a href="#wrap" class="go-up"><i class="lnr lnr-arrow-up"></i></a> </div>
+      </div>
+    </div>
+  </footer>
+</div>
+<script src="./js/jquery-1.11.3.min.js"></script>
+<script src="./js/bootstrap.min.js"></script>
+<script src="./js/own-menu.js"></script>
+<script src="./js/jquery.lighter.js"></script>
+<script src="./js/owl.carousel.min.js"></script>
+
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<script type="text/javascript" src="./rs-plugin/js/jquery.tp.t.min.js"></script>
+<script type="text/javascript" src="./rs-plugin/js/jquery.tp.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
