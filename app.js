@@ -20,7 +20,6 @@ var checkout = require('./routes/checkout');
 var cart = require('./routes/cart');
 var logout = require('./routes/logout');
 var info = require('./routes/info');
-var updateDB = require('./routes/updateDB');
 
 var app = express();
 
@@ -34,7 +33,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname+'/public'));
-
+app.use('/productDB/update', express.static(__dirname+'/public'));
 app.use(session({
   key: 'sid',
   secret: 'secret',
@@ -61,7 +60,6 @@ app.use('/detail', detail);
 app.use('/checkout', checkout);
 app.use('/cart', cart);
 app.use('/info', info);
-app.use('/updateDB', updateDB);
 
 app.use('/hi', (req, res, next)=>{
     res.send('Hi? <img src="./1024.png">');
