@@ -289,9 +289,11 @@
                     <!-- Rating Stars -->
                     <div class="stars"> <span>YOUR RATING</span> <i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i></div>
                   </li>
+                    <% if(session.email){%>
                   <li class="col-sm-6">
                     <button type="submit" class="btn btn-dark btn-small pull-right no-margin">POST REVIEW</button>
                   </li>
+                  <%}%>
                 </ul>
               </form>
             </div>
