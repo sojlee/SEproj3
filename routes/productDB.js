@@ -9,7 +9,8 @@ var pool = mysql.createPool({
 	port: dbConfig.port,
 	user: dbConfig.user,
 	password: dbConfig.password,
-	database: dbConfig.database
+	database: dbConfig.database,
+	dateStrings:'date'
 });
 var fs = require('fs');         // 파일 삭제 구현 목적
 
@@ -60,6 +61,54 @@ router.get('/', function(req, res, next) {
     });
 
 });
+
+router.get('/update/:p_code', function(req, res, next) {
+	var p_code = req.params.p_code;
+	pool.getConnection(function (err, connection) {
+				if(err) throw err;
+				// Use the connection
+				var sqlForSelectList = "SELECT p_code, p_name, p_desc, p_img, p_price, p_amount, update_date FROM product where p_code = ?";
+				connection.query(sqlForSelectList, p_code, function (err, rows){
+						if (err) console.error("err : " + err);
+						console.log("rows : " + JSON.stringify(rows));
+					 res.render('./admin/form-elements.html', {rows:rows[0]} );
+						connection.release();
+
+						// Don't use the connection here, it has been returned to the pool.
+				});
+		});
+});
+
+router.post('/update', function(req, res, next) {
+	var p_code = req.body.p_code;
+	var p_name = req.body.p_name;
+	var p_desc = req.body.p_desc;
+	var p_amount = req.body.p_amount;
+	var p_price = req.body.p_price;
+//	var p_img = req.body.p_img;
+	var datas = [p_name, p_desc, p_amount, p_price, p_code];
+	console.log(datas);
+
+	pool.getConnection(function (err, connection) {
+				if(err) throw err;
+				// Use the connection
+				var sqlForSelectList = "update product set p_name=?, p_desc=?, p_amount=?, p_price=? where p_code = ?";
+				connection.query(sqlForSelectList, datas, function (err, rows){
+						if (err) console.error("err : " + err);
+						console.log("rows : " + JSON.stringify(rows));
+						if(rows.affectedRows==0){
+			 				res.send("<script> alert('관리자에게 문의하세요.'); history.back();</script>");
+			 			}
+			 			else{
+			 				res.redirect('/productDB');
+			 			}
+						connection.release();
+
+						// Don't use the connection here, it has been returned to the pool.
+				});
+		});
+});
+
 
 module.exports = router;
 

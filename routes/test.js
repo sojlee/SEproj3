@@ -15,4 +15,7 @@ router.get('/', function(req, res, next) {
 		res.render('index.html', {session:req.session});
 });
 
+router.get('/test', function(req, res, next) {
+		res.render('./admin/imgtest.html');
+});
 module.exports = router;
