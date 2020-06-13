@@ -8,21 +8,21 @@
 -------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------
-body 
+body
  + WRAP
  + HEADER
  + NAVIGATION
  + BANNER
  + SERVICES
  + OUR FEATURED FOUNDERS
- + BLOG UPDATES 
+ + BLOG UPDATES
  + APPOINMENT
  + NEWS FROM BLOG
  + PARTNERS / CLIENTS
  + FOOTER
  + SOCIAL ICONS
  + MEGA MENU
- + 3 MENU LEVEL 
+ + 3 MENU LEVEL
 -------------------------------------------------------------------*/
 /*=======================================================
       IMPORT FILE
@@ -788,7 +788,7 @@ header.light-head .ownmenu .nav .dropdown-menu {
 header.light-head .ownmenu .nav ul.dropdown-menu li a {
 	color: #fff !important;
 	border-bottom: 1px solid rgba(255,255,255,0.1);
-} 
+}
 header.light-head .ownmenu .nav .dropdown-menu li a:after{
 	color:#fff;
 }
@@ -1225,7 +1225,7 @@ header .is-sticky .sticky .user-basket .dropdown-menu {
 	border-bottom: 1px solid #d1d5db;
 }
 .arrival-block .overlay {
-	background: rgba(255,255,21,0.75);
+	background: rgba(255,255,255,0.75);
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -1496,7 +1496,7 @@ header .is-sticky .sticky .user-basket .dropdown-menu {
 	line-height: 21px;
 }
 .papular-block .overlay {
-	background: rgba(255,255,21,0.75);
+	background: rgba(255,255,255,0.75);
 	position: absolute;
 	height: 100%;
 	width: 100%;
@@ -3841,8 +3841,8 @@ footer .subscribe input {
 	-webkit-transform: scale3d(1.1, 1.1, 1);
 	transform: scale3d(1.1, 1.1, 1);
 }
-/* -------------------------------- 
-	Main Components 
+/* --------------------------------
+	Main Components
 -------------------------------- */
 main {
 	position: relative;
