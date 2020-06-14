@@ -183,135 +183,60 @@
 
               <!-- ESTIMATE SHIPPING & TAX -->
               <div class="col-sm-7">
-                <h6>BILLING DETAILS</h6>
+                <h6>구매자</h6>
                 <form>
                   <ul class="row">
 
                     <!-- Name -->
                     <li class="col-md-6">
-                      <label> *FIRST NAME
-                        <input type="text" name="first-name" value="" placeholder="">
-                      </label>
+                      <label> *이름</label>
                     </li>
                     <!-- LAST NAME -->
                     <li class="col-md-6">
-                      <label> *LAST NAME
                         <input type="text" name="last-name" value="" placeholder="">
-                      </label>
                     </li>
                     <li class="col-md-6">
-                      <!-- COMPANY NAME -->
-                      <label>COMPANY NAME
+                      <label> *주소</label>
+                    </li>
+                    <li class="col-md-6">
                         <input type="text" name="company" value="" placeholder="">
-                      </label>
                     </li>
                     <li class="col-md-6">
-                      <!-- ADDRESS -->
-                      <label>*ADDRESS
-                        <input type="text" name="address" value="" placeholder="">
-                      </label>
+                      <label>*연락처</label>
                     </li>
                     <!-- TOWN/CITY -->
                     <li class="col-md-6">
-                      <label>*TOWN/CITY
-                        <input type="text" name="town" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- COUNTRY -->
-                    <li class="col-md-6">
-                      <label> COUNTRY
-                        <input type="text" name="contry-state" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- EMAIL ADDRESS -->
-                    <li class="col-md-6">
-                      <label> *EMAIL ADDRESS
-                        <input type="text" name="contry-state" value="" placeholder="">
-                      </label>
-                    </li>
-                    <!-- PHONE -->
-                    <li class="col-md-6">
-                      <label> *PHONE
-                        <input type="text" name="postal-code" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- PHONE -->
-                    <li class="col-md-6">
-                      <button type="submit" class="btn">continue</button>
-                    </li>
-
-                    <!-- CREATE AN ACCOUNT -->
-                    <li class="col-md-6">
-                      <div class="checkbox margin-0 margin-top-20">
-                        <input id="checkbox1" class="styled" type="checkbox">
-                        <label for="checkbox1"> Ship to a different address </label>
-                      </div>
+                        <input type="text" name="s_phone" value="" placeholder="">
                     </li>
                   </ul>
                 </form>
 
                 <!-- SHIPPING info -->
-                <h6 class="margin-top-50">SHIPPING info</h6>
+                <h6 class="margin-top-50">수령인</h6>
                 <form>
                   <ul class="row">
 
                     <!-- Name -->
                     <li class="col-md-6">
-                      <label> *FIRST NAME
-                        <input type="text" name="first-name" value="" placeholder="">
-                      </label>
+                      <label> *이름</label>
                     </li>
                     <!-- LAST NAME -->
                     <li class="col-md-6">
-                      <label> *LAST NAME
                         <input type="text" name="last-name" value="" placeholder="">
-                      </label>
                     </li>
                     <li class="col-md-6">
-                      <!-- COMPANY NAME -->
-                      <label>COMPANY NAME
+                      <label> *주소</label>
+                    </li>
+                    <li class="col-md-6">
                         <input type="text" name="company" value="" placeholder="">
-                      </label>
                     </li>
                     <li class="col-md-6">
                       <!-- ADDRESS -->
-                      <label>*ADDRESS
-                        <input type="text" name="address" value="" placeholder="">
-                      </label>
+                      <label>*연락처</label>
                     </li>
                     <!-- TOWN/CITY -->
                     <li class="col-md-6">
-                      <label>*TOWN/CITY
-                        <input type="text" name="town" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- COUNTRY -->
-                    <li class="col-md-6">
-                      <label> COUNTRY
-                        <input type="text" name="contry-state" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- EMAIL ADDRESS -->
-                    <li class="col-md-6">
-                      <label> *EMAIL ADDRESS
-                        <input type="text" name="contry-state" value="" placeholder="">
-                      </label>
-                    </li>
-                    <!-- PHONE -->
-                    <li class="col-md-6">
-                      <label> *PHONE
-                        <input type="text" name="postal-code" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- PHONE -->
-                    <li class="col-md-6">
-                      <button type="submit" class="btn">SUBMIT</button>
+                        <input type="text" name="phone" value="" placeholder="">
                     </li>
                   </ul>
                 </form>
@@ -319,51 +244,49 @@
 
               <!-- SUB TOTAL -->
               <div class="col-sm-5">
-                <h6>YOUR ORDER</h6>
+                <h6>ORDER LIST</h6>
                 <div class="order-place">
                   <div class="order-detail">
-                    <p>WOOD CHAIR <span>$598 </span></p>
-                    <p>STOOL <span>$199 </span></p>
-                    <p>WOOD SPOON <span> $139</span></p>
-
+                    <% for(var i = 0; i < rows.length; i ++) { %>
+                    <p><%=rows[i].p_name%> <span><%=rows[i].p_price%>won</span></p>
+                    <% }%>
                     <!-- SUB TOTAL -->
-                    <p class="all-total">TOTAL COST <span> $998</span></p>
+                    <p class="all-total">TOTAL <span><%=total%>won</span></p>
                   </div>
                   <div class="pay-meth">
                     <ul>
                       <li>
                         <div class="radio">
                           <input type="radio" name="radio1" id="radio1" value="option1" checked>
-                          <label for="radio1"> DIRECT BANK TRANSFER </label>
+                          <label for="radio1"> 카드 결제 </label>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam erat turpis, pellentesque non leo eget, pulvinar pretium arcu. Mauris porta elit non.</p>
                       </li>
                       <li>
                         <div class="radio">
                           <input type="radio" name="radio1" id="radio2" value="option2">
-                          <label for="radio2"> CASH ON DELIVERY</label>
+                          <label for="radio2"> 무통장 결제</label>
                         </div>
                       </li>
                       <li>
                         <div class="radio">
                           <input type="radio" name="radio1" id="radio3" value="option3">
-                          <label for="radio3"> CHEQUE PAYMENT </label>
+                          <label for="radio3"> 계좌 이체</label>
                         </div>
                       </li>
                       <li>
                         <div class="radio">
                           <input type="radio" name="radio1" id="radio4" value="option4">
-                          <label for="radio4"> PAYPAL </label>
+                          <label for="radio4"> 핸드폰 결제 </label>
                         </div>
                       </li>
                       <li>
                         <div class="checkbox">
                           <input id="checkbox3-4" class="styled" type="checkbox">
-                          <label for="checkbox3-4"> I’VE READ AND ACCEPT THE <span class="color"> TERMS & CONDITIONS </span> </label>
+                          <label for="checkbox3-4"> 개인정보 제3자 제공 동의, 결제대행 서비스 이용약관 등 <span class="color"> 모든 약관 </span>에 동의합니다. </label>
                         </div>
                       </li>
                     </ul>
-                    <a href="#." class="btn  btn-dark pull-right margin-top-30">PLACE ORDER</a> </div>
+                    <a href="#." class="btn  btn-dark pull-right margin-top-30">주문하기</a> </div>
                 </div>
               </div>
             </div>
