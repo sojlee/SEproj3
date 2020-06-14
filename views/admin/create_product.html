@@ -175,7 +175,7 @@
                 <!-- Page Inner -->
                 <div class="page-inner">
                     <div class="page-title">
-                        <h3 class="breadcrumb-header">상품 정보 수정</h3>
+                        <h3 class="breadcrumb-header">상품 추가</h3>
                     </div>
                 <div id="main-wrapper">
                     <div class="row">
@@ -184,15 +184,20 @@
 
                             <div class="panel panel-white">
                                 <div class="panel-heading clearfix">
-                                    <h4 class="panel-title">상품 코드 <%=rows.p_code%> 상품 수정</h4>
+                                    <h4 class="panel-title">상품 추가</h4>
                                 </div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" id="updateDBForm" action="/productDB/update" method="post"  enctype="multipart/form-data">
-                                        <input type="hidden" name="p_code" value="<%=rows.p_code%>">
+                                    <form class="form-horizontal" id="updateDBForm" action="/productDB/create" method="post"  enctype="multipart/form-data">
+                                      <div class="form-group">
+                                          <label for="input-Default" class="col-sm-2 control-label">상품 코드</label>
+                                          <div class="col-sm-10">
+                                              <input type="text" class="form-control" name="p_code" id="input-Default" required>
+                                          </div>
+                                      </div>
                                         <div class="form-group">
                                             <label for="input-Default" class="col-sm-2 control-label">상품 명</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" value = "<%=rows.p_name%>" name="p_name" id="input-Default">
+                                                <input type="text" class="form-control" name="p_name" id="input-Default" required>
                                             </div>
                                         </div>
                                         <div class="form-group">
@@ -204,23 +209,22 @@
                                         <div class="form-group">
                                             <label for="input-Default" class="col-sm-2 control-label">상품 가격</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" value = "<%=rows.p_price%>" name="p_price" id="input-Default" numberOnly>
+                                                <input type="text" class="form-control" name="p_price" id="input-Default" numberOnly required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="input-Default" class="col-sm-2 control-label">상품 재고</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" value = "<%=rows.p_amount%>" name="p_amount" id="input-Default" numberOnly>
+                                                <input type="text" class="form-control"  name="p_amount" id="input-Default" numberOnly required>
                                             </div>
                                         </div>
                                         <div class="form-group">
                                             <label for="input-Default" class="col-sm-2 control-label">상품 설명</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" value = "<%=rows.p_desc%>" name="p_desc" id="input-Default">
+                                                <input type="text" class="form-control" name="p_desc" id="input-Default" required>
                                             </div>
                                         </div>
-                                        <button type="button" name="updateBtn" id="updateBtn" class="btn btn-default">수정하기</button>
-                                        <button type="button" name="deleteBtn" id="deleteBtn"  onclick = "location.href = '/productDB/delete/<%=rows.p_code%>' " class="btn btn-primary">삭제하기</button>
+                                        <button type="button" name="updateBtn" id="updateBtn" class="btn btn-default">추가하기</button>
                                     </form>
                                 </div>
                             </div>
@@ -404,8 +408,7 @@
     			$("#updateBtn").click(
     				function(){
               $("#updateDBForm").submit();
-            });
-
+            })
         });
       </script>
         <script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>

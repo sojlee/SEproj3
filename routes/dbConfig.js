@@ -2,7 +2,7 @@ var dbConfig = {
 	host: 'localhost',
 	port: 3306,
 	user: 'root',
-	password: '',
+	password: '07200115',
 	database: 'myflower'
 };
 

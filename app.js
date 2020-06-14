@@ -35,6 +35,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(__dirname+'/public'));
 app.use('/productDB/update', express.static(__dirname+'/public'));
+app.use('/productDB/create', express.static(__dirname+'/public'));
 app.use('/userDB/update', express.static(__dirname+'/public'));
 app.use(session({
   key: 'sid',
