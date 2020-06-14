@@ -187,7 +187,7 @@
                                     <h4 class="panel-title">상품 코드 <%=rows.p_code%> 상품 수정</h4>
                                 </div>
                                 <div class="panel-body">
-                                    <form class="form-horizontal" id="updateDBForm" action="/productDB/update" method="post">
+                                    <form class="form-horizontal" id="updateDBForm" action="/productDB/update" method="post"  enctype="multipart/form-data">
                                         <input type="hidden" name="p_code" value="<%=rows.p_code%>">
                                         <div class="form-group">
                                             <label for="input-Default" class="col-sm-2 control-label">상품 명</label>
@@ -198,7 +198,7 @@
                                         <div class="form-group">
                                             <label for="input-Default" class="col-sm-2 control-label">상품 이미지</label>
                                             <div class="col-sm-10">
-                                                <input type="text" class="form-control" value = "<%=rows.p_name%>" name="p_img" id="input-Default">
+                                                <input type="file" name="IMG_FILE" multiple>
                                             </div>
                                         </div>
                                         <div class="form-group">

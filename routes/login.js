@@ -26,18 +26,20 @@ router.post('/', function(req, res, next) {
 
 	pool.getConnection(function(err, conn) {
 		if(err) throw err;
-		var sqlForInsertUser = "select salt, passwd, email from user where id = ?";
+		var sqlForInsertUser = "select salt, passwd, email, grade from user where id = ?";
 		conn.query(sqlForInsertUser, id, function (err, rows) {
 			if(err) console.log("err : " + err);
 			console.log("rows : " + JSON.stringify(rows));
 			var salt = rows[0].salt;
 			var passwd = rows[0].passwd;
 			var email = rows[0].email;
+			var grade = rows[0].grade;
 			var hashPassword = crypto.createHash("sha512").update(inputPassword + salt).digest("hex");
 			console.log(hashPassword);
 			console.log(passwd);
 			if(passwd === hashPassword){
 				req.session.email = email;
+				req.session.grade = grade;
 				console.log(req.session);
 				res.send("<script> alert('로그인 성공'); location.href='/';</script>");
 			}
