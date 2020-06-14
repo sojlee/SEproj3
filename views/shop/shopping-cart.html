@@ -163,13 +163,6 @@
     <div class="position-center-center">
       <div class="container">
         <h4>SHOPPING CART</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
-          Sed feugiat, tellus vel tristique posuere, diam</p>
-        <ol class="breadcrumb">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">SHOP</a></li>
-          <li class="active">SHOPPING CART</li>
-        </ol>
       </div>
     </div>
   </section>
@@ -202,26 +195,21 @@
                 <h6>QTY</h6>
               </li>
 
-              <!-- TOTAL PRICE -->
-              <li class="col-sm-2">
-                <h6>TOTAL</h6>
-              </li>
               <li class="col-sm-1"> </li>
             </ul>
           </div>
-
+          <% for (var i = 0; i < rows.length; i++) {%>
           <!-- Cart Details -->
           <ul class="row cart-details">
             <li class="col-sm-6">
               <div class="media">
                 <!-- Media Image -->
-                <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="./images/cart-img-1.jpg" alt=""> </a> </div>
+                <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="<%=rows[i].cart_img%>" alt=""> </a> </div>
 
                 <!-- Item Name -->
                 <div class="media-body">
                   <div class="position-center-center">
-                    <h5>wood chair</h5>
-                    <p>Lorem ipsum dolor sit amet</p>
+                    <h5><%=rows[i].p_name%></h5>
                   </div>
                 </div>
               </div>
@@ -229,7 +217,7 @@
 
             <!-- PRICE -->
             <li class="col-sm-2">
-              <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
+              <div class="position-center-center"> <span class="price"><%=rows[i].p_price%><small>won</small></span> </div>
             </li>
 
             <!-- QTY -->
@@ -248,7 +236,7 @@
 
             <!-- TOTAL PRICE -->
             <li class="col-sm-2">
-              <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
+              <div class="position-center-center"> <span class="price"><%=rows[i].p_price%><small>won</small></span> </div>
             </li>
 
             <!-- REMOVE -->
@@ -256,100 +244,7 @@
               <div class="position-center-center"> <a href="#."><i class="icon-close"></i></a> </div>
             </li>
           </ul>
-
-          <!-- Cart Details -->
-          <ul class="row cart-details">
-            <li class="col-sm-6">
-              <div class="media">
-                <!-- Media Image -->
-                <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="./images/cart-img-2.jpg" alt=""> </a> </div>
-
-                <!-- Item Name -->
-                <div class="media-body">
-                  <div class="position-center-center">
-                    <h5>STOOL</h5>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- PRICE -->
-            <li class="col-sm-2">
-              <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
-            </li>
-
-            <!-- QTY -->
-            <li class="col-sm-1">
-              <div class="position-center-center">
-                <div class="quinty">
-                  <!-- QTY -->
-                  <select class="selectpicker">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
-                </div>
-              </div>
-            </li>
-
-            <!-- TOTAL PRICE -->
-            <li class="col-sm-2">
-              <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
-            </li>
-
-            <!-- REMOVE -->
-            <li class="col-sm-1">
-              <div class="position-center-center"> <a href="#."><i class="icon-close"></i></a> </div>
-            </li>
-          </ul>
-
-          <!-- Cart Details -->
-          <ul class="row cart-details">
-            <li class="col-sm-6">
-              <div class="media">
-                <!-- Media Image -->
-                <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="./images/cart-img-3.jpg" alt=""> </a> </div>
-
-                <!-- Item Name -->
-                <div class="media-body">
-                  <div class="position-center-center">
-                    <h5>wood SPOON</h5>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                </div>
-              </div>
-            </li>
-
-            <!-- PRICE -->
-            <li class="col-sm-2">
-              <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
-            </li>
-
-            <!-- QTY -->
-            <li class="col-sm-1">
-              <div class="position-center-center">
-                <div class="quinty">
-                  <!-- QTY -->
-                  <select class="selectpicker">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
-                </div>
-              </div>
-            </li>
-
-            <!-- TOTAL PRICE -->
-            <li class="col-sm-2">
-              <div class="position-center-center"> <span class="price"><small>$</small>299</span> </div>
-            </li>
-
-            <!-- REMOVE -->
-            <li class="col-sm-1">
-              <div class="position-center-center"> <a href="#."><i class="icon-close"></i></a> </div>
-            </li>
-          </ul>
+          <%}%>
         </div>
       </div>
     </section>

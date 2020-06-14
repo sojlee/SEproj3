@@ -171,7 +171,8 @@
         <!-- SHOP DETAIL -->
         <div class="shop-detail">
           <div class="row">
-
+          <form id="cartForm" name="cartForm" action="/cart" method="post">
+              <input type="hidden" id="p_code" name="p_code" value="<%=rows.p_code%>">
             <!-- Popular Images Slider -->
             <div class="col-md-7">
               <img class="img-responsive" src="<%=rows.large_img%>"  alt="">
@@ -214,16 +215,22 @@
                     </div>
                   </li>
                   <br>
-
                 </ul>
-
 
                 <ul class="row margin-top-30">
                   <!-- ADD TO CART -->
-                  <li class="col-xs-6">
-                    <button type="button" class="btn" id="addcartBtn" name="addcartBtn">ADD TO CART</button>
-                  </li>
+                  <% if(session.email){%>
+                <li class="col-sm-6">
+                  <button type="button" class="btn" id="cartBtn" name="cartBtn">ADD TO CART</button>
+                </li>
+                <%} else {%>
+                <li class="col-sm-6">
+                  <button type="button" class="btn" onclick="alert('로그인이 필요합니다.');">ADD TO CART</button>
+                </li>
+                <%}%>
                 </ul>
+
+              </form>
                 <!-- INFOMATION -->
                 <div class="inner-info">
                   <h6>DELIVERY INFORMATION</h6>
@@ -391,7 +398,13 @@
                  }
 
                   $("#reviewForm").submit();
-                });
+    });
+
+    $("#cartBtn").click(
+        				function(){
+
+                  $("#cartForm").submit();
+    });
 });
 </script>
 <script src="./js/bootstrap.min.js"></script>
