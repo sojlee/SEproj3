@@ -20,6 +20,7 @@ var checkout = require('./routes/checkout');
 var cart = require('./routes/cart');
 var logout = require('./routes/logout');
 var info = require('./routes/info');
+var userDB = require('./routes/userDB');
 
 var app = express();
 
@@ -60,6 +61,7 @@ app.use('/detail', detail);
 app.use('/checkout', checkout);
 app.use('/cart', cart);
 app.use('/info', info);
+app.use('/userDB', userDB);
 
 app.use('/hi', (req, res, next)=>{
     res.send('Hi? <img src="./1024.png">');
