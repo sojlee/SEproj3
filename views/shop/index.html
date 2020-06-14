@@ -93,13 +93,9 @@
               <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
                 <ul class="dropdown-menu">
                   <% if(session.email){%>
-                  <li><a href="/cart">MY CART</a></li>
-                  <li><a href="/checkout">ORDER LIST</a></li>
                   <li><a href="/info">ACCOUNT INFO</a></li>
                   <li><a href="/logout">LOGOUT</a></li>
                   <%} else {%>
-                  <li><a href="/login">MY CART</a></li>
-                  <li><a href="/login">ACCOUNT INFO</a></li>
                   <li><a href="/login">LOGIN</a></li>
                   <li><a href="/register">REGISTER</a><li>
                   <%}%>
@@ -109,31 +105,13 @@
               <!-- USER BASKET -->
               <li class="dropdown user-basket"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
                 <ul class="dropdown-menu">
-                  <li>
-                    <div class="media-left">
-                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="./images/cart-img-1.jpg" alt="..."> </a> </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading">WOOD CHAIR</h6>
-                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
-                  </li>
-                  <li>
-                    <div class="media-left">
-                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="./images/cart-img-2.jpg" alt="..."> </a> </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading">WOOD STOOL</h6>
-                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
-                  </li>
-                  <li>
-                    <h5 class="text-center">SUBTOTAL: 258.00 USD</h5>
-                  </li>
-                  <li class="margin-0">
-                    <div class="row">
-                      <div class="col-xs-6"> <a href="shopping-cart.html" class="btn">VIEW CART</a></div>
-                      <div class="col-xs-6 "> <a href="checkout.html" class="btn">CHECK OUT</a></div>
-                    </div>
-                  </li>
+                  <% if(session.email){%>
+                  <li><a href="/cart">MY CART</a></li>
+                  <li><a href="/orderlist">ORDER LIST</a></li>
+                  <%} else {%>
+                  <li><a href="/login">MY CART</a></li>
+                  <li><a href="/login">ORDER LIST</a></li>
+                  <%}%>
                 </ul>
               </li>
 
@@ -182,7 +160,7 @@
                 data-elementdelay="0.1"
                 data-endelementdelay="0.1"
                 data-endspeed="300"
-                style="z-index: 7; font-size:18px; color:#fff; max-width: auto; max-height: auto; white-space: nowrap;">The Latest Product from PAVSHOP</div>
+                style="z-index: 7; font-size:18px; color:#fff; max-width: auto; max-height: auto; white-space: nowrap;"></div>
             <!-- LAYER NR. 2 -->
             <div class="tp-caption sfl font-extra-bold tp-resizeme"
                 data-x="left" data-hoffset="0"
@@ -195,7 +173,7 @@
                 data-elementdelay="0.07"
                 data-endelementdelay="0.1"
                 data-endspeed="300"
-                style="z-index: 6; font-size:80px; color:#2d3a4b; text-transform:uppercase; white-space: nowrap;"><small class="font-regular">$</small>299 </div>
+                style="z-index: 6; font-size:80px; color:#2d3a4b; text-transform:uppercase; white-space: nowrap;"><small class="font-regular"></small> </div>
             <!-- LAYER NR. 2 -->
             <div class="tp-caption sfr font-extra-bold tp-resizeme"
                 data-x="left" data-hoffset="0"
@@ -208,7 +186,7 @@
                 data-elementdelay="0.07"
                 data-endelementdelay="0.1"
                 data-endspeed="300"
-                style="z-index: 6; font-size:120px; color:#fff; text-transform:uppercase; white-space: nowrap;">featured </div>
+                style="z-index: 6; font-size:120px; color:#fff; text-transform:uppercase; white-space: nowrap;"> </div>
             <!-- LAYER NR. 2 -->
             <div class="tp-caption sfr font-extra-bold tp-resizeme"
                 data-x="left" data-hoffset="0"
@@ -221,19 +199,9 @@
                 data-elementdelay="0.07"
                 data-endelementdelay="0.1"
                 data-endspeed="300"
-                style="z-index: 6; font-size:120px; color:#fff; text-transform:uppercase; white-space: nowrap;">cycle </div>
+                style="z-index: 6; font-size:120px; color:#fff; text-transform:uppercase; white-space: nowrap;"> </div>
             <!-- LAYER NR. 4 -->
-            <div class="tp-caption lfb tp-resizeme"
-                data-x="left" data-hoffset="0"
-                data-y="center" data-voffset="240"
-                data-speed="800"
-                data-start="2200"
-                data-easing="Power3.easeInOut"
-                data-elementdelay="0.1"
-                data-endelementdelay="0.1"
-                data-endspeed="300"
-                data-scrolloffset="0"
-                style="z-index: 8;"><a href="#." class="btn">SHOP NOW</a> </div>
+
           </li>
 
           <!-- SLIDE  -->
@@ -253,7 +221,7 @@
                 data-elementdelay="0.1"
                 data-endelementdelay="0.1"
                 data-endspeed="300"
-                style="z-index: 7; font-size:18px; color:#fff; max-width: auto; max-height: auto; white-space: nowrap;">The Latest Product from PAVSHOP</div>
+                style="z-index: 7; font-size:18px; color:#fff; max-width: auto; max-height: auto; white-space: nowrap;"></div>
             <!-- LAYER NR. 2 -->
             <div class="tp-caption sfr font-regular tp-resizeme letter-space-4"
                 data-x="center" data-hoffset="0"
@@ -266,7 +234,7 @@
                 data-elementdelay="0.07"
                 data-endelementdelay="0.1"
                 data-endspeed="300"
-                style="z-index: 6; font-size:78px; color:#fff; text-transform:uppercase; white-space: nowrap;">look beautiful </div>
+                style="z-index: 6; font-size:78px; color:#fff; text-transform:uppercase; white-space: nowrap;"> </div>
             <!-- LAYER NR. 2 -->
             <div class="tp-caption sfr font-extra-bold tp-resizeme letter-space-4"
                 data-x="center" data-hoffset="0"
@@ -279,7 +247,7 @@
                 data-elementdelay="0.07"
                 data-endelementdelay="0.1"
                 data-endspeed="300"
-                style="z-index: 6; font-size:140px; color:#fff; text-transform:uppercase; white-space: nowrap;">this season </div>
+                style="z-index: 6; font-size:140px; color:#fff; text-transform:uppercase; white-space: nowrap;"></div>
             <!-- LAYER NR. 4 -->
             <div class="tp-caption sfb font-extra-bold tp-resizeme"
                 data-x="center" data-hoffset="120"
@@ -292,19 +260,9 @@
                 data-elementdelay="0.07"
                 data-endelementdelay="0.1"
                 data-endspeed="300"
-                style="z-index: 6; font-size:60px; color:#fff; text-transform:uppercase; white-space: nowrap;"><small class="font-regular">$</small> 299 </div>
+                style="z-index: 6; font-size:60px; color:#fff; text-transform:uppercase; white-space: nowrap;"><small class="font-regular"></div>
             <!-- LAYER NR. 4 -->
-            <div class="tp-caption lfb tp-scrollbelowslider tp-resizeme"
-                data-x="center" data-hoffset="-120"
-                data-y="center" data-voffset="200"
-                data-speed="800"
-                data-start="2200"
-                data-easing="Power3.easeInOut"
-                data-elementdelay="0.1"
-                data-endelementdelay="0.1"
-                data-endspeed="300"
-                data-scrolloffset="0"
-                style="z-index: 8;"><a href="#." class="btn">BUY NOW</a> </div>
+
           </li>
         </ul>
       </div>
@@ -320,9 +278,8 @@
 
         <!-- Main Heading -->
         <div class="heading text-center">
-          <h4>new arrival</h4>
-          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
-          Sed feugiat, tellus vel tristique posuere, diam</span> </div>
+          <h4>NEW</h4>
+          <span>새로운 상품들입니다.</span> </div>
       </div>
 
       <!-- New Arrival -->
@@ -458,9 +415,8 @@
 
         <!-- Main Heading -->
         <div class="heading text-center">
-          <h4>popular products</h4>
-          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
-          Sed feugiat, tellus vel tristique posuere, diam</span> </div>
+          <h4>HOT</h4>
+          <span>고객님들에게 평점이 높게 받은 상품들입니다.</span> </div>
 
         <!-- Popular Item Slide -->
         <div class="papular-block block-slide">
@@ -540,70 +496,6 @@
       </div>
     </section>
 
-    <!-- Knowledge Share -->
-    <section class="light-gray-bg padding-top-150 padding-bottom-150">
-      <div class="container">
-
-        <!-- Main Heading -->
-        <div class="heading text-center">
-          <h4>knowledge share</h4>
-          <span>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula.
-          Sed feugiat, tellus vel tristique posuere, diam</span> </div>
-        <div class="knowledge-share">
-          <ul class="row">
-
-            <!-- Post 1 -->
-            <li class="col-md-6">
-              <div class="date"> <span>December</span> <span class="huge">27</span> </div>
-              <a href="#.">Donec commo is vulputate</a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula. Sed feugiat, tellus vel tristique posuere, diam</p>
-              <span>By <strong>Admin</strong></span> </li>
-
-            <!-- Post 2 -->
-            <li class="col-md-6">
-              <div class="date"> <span>December</span> <span class="huge">09</span> </div>
-              <a href="#.">Donec commo is vulputate</a>
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec faucibus maximus vehicula. Sed feugiat, tellus vel tristique posuere, diam</p>
-              <span>By <strong>Admin</strong></span> </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Testimonial -->
-    <section class="testimonial padding-top-100">
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-6">
-
-            <!-- SLide -->
-            <div class="single-slide">
-
-              <!-- Slide -->
-              <div class="testi-in"> <i class="fa fa-quote-left"></i>
-                <p>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper sapien lacus, eu posuere odio luctus non. Nulla lacinia, eros vel fermentum consectetur, risus p</p>
-                <h5>john smith</h5>
-              </div>
-
-              <!-- Slide -->
-              <div class="testi-in"> <i class="fa fa-quote-left"></i>
-                <p>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper sapien lacus, eu posuere odio luctus non. Nulla lacinia, eros vel fermentum consectetur, risus p</p>
-                <h5>john smith</h5>
-              </div>
-
-              <!-- Slide -->
-              <div class="testi-in"> <i class="fa fa-quote-left"></i>
-                <p>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsum primis in faucibus. Sed ullamcorper sapien lacus, eu posuere odio luctus non. Nulla lacinia, eros vel fermentum consectetur, risus p</p>
-                <h5>john smith</h5>
-              </div>
-            </div>
-          </div>
-
-          <!-- Img -->
-          <div class="col-sm-6"> <img class="img-responsive" src="./images/testi-avatar.jpg" alt=""> </div>
-        </div>
-      </div>
-    </section>
 
     <!-- About -->
     <section class="small-about padding-top-150 padding-bottom-150">
@@ -611,9 +503,9 @@
 
         <!-- Main Heading -->
         <div class="heading text-center">
-          <h4>about PAVSHOP</h4>
-          <p>Phasellus lacinia fermentum bibendum. Interdum et malesuada fames ac ante ipsumien lacus, eu posuere odio luctus non. Nulla lacinia,
-            eros vel fermentum consectetur, risus purus tempc, et iaculis odio dolor in ex. </p>
+          <h4>about FFORU</h4>
+          <p>Flower For U </p>
+          <p>저희 가게는 고객의 만족을 최우선으로 하여, 감각적이고 신선한 상품들을 제공합니다. 고객님들의 소중한 추억과 함께하겠습니다. </p>
         </div>
 
         <!-- Social Icons -->
