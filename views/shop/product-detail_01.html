@@ -189,7 +189,7 @@
 
               <!-- 평점 : 리뷰 평점 평균-->
               <div class="some-info">
-                <h5>평점 : <i class="fa fa-star"></i> 3.5/5.0</h5>
+                <h5>평점 : <i class="fa fa-star"></i> <%=avr%>/5.0</h5>
               </div>
 
               <!-- Short By -->
@@ -281,7 +281,8 @@
 
               <!-- Review 추가 : 로그인 시에만 작성가능 -->
               <h6 class="margin-t-40"></h6>
-              <form action="/detail/write_review" method="post" onsubmit="return onWriteSubmit()" enctype="multipart/form-data">
+              <form id="reviewForm" name="reviewForm" action="/detail/write_review" method="post">
+                <input type="hidden" id="p_code" name="p_code" value="<%=rows.p_code%>">
                 <ul class="row">
                   <li class="col-sm-12">
                     <label> YOUR REVIEW (최대 100자)
@@ -303,7 +304,7 @@
                   </li>
                     <% if(session.email){%>
                   <li class="col-sm-6">
-                    <button type="button" class="btn btn-dark btn-small pull-right no-margin">POST REVIEW</button>
+                    <button type="button" id="reviewBtn" name="reviewBtn" class="btn btn-dark btn-small pull-right no-margin">POST REVIEW</button>
                   </li>
                   <%} else {%>
                   <li class="col-sm-6">
@@ -379,7 +380,20 @@
 
 </div>
 <script src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $("#reviewBtn").click(
+        				function(){
+                 if($("#review_content").val()==""){
+                   alert("내용을 입력해주세요.");
+                   $("#review_content").focus();
+                   return;
+                 }
 
+                  $("#reviewForm").submit();
+                });
+});
+</script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/own-menu.js"></script>
 <script src="./js/jquery.lighter.js"></script>

@@ -27,11 +27,16 @@ router.get('/:p_code', function(req, res, next) {
 						console.log("rows : " + JSON.stringify(rows));
 						var product = rows[0];
 						var review = rows[1];
-
+						var avr = 0;
+						for(var i = 0; i < review.length; i ++){
+							avr += review[i].score;
+						}
+						avr /= review.length;
 						console.log(product);
 						console.log(review);
+						console.log(avr);
 
-						res.render('./shop/product-detail_01.html', {session:req.session, rows:product[0], review:review});
+						res.render('./shop/product-detail_01.html', {session:req.session, avr:avr.toFixed(1), rows:product[0], review:review});
 						connection.release();
 		});
 	});
@@ -41,7 +46,7 @@ router.get('/:p_code', function(req, res, next) {
 router.post('/write_review', function(req, res, next) {
 	// review 테이블에 쓸 값을 가져온다.
 	var product_code = req.body.p_code; // 임의의 값, sql문으로 가져와야함
-	var user = req.session.id; // 쓴 작성자 id, 세션이나 sql을 통해서 id를 가져와야함
+	var user = req.session.uid; // 쓴 작성자 id, 세션이나 sql을 통해서 id를 가져와야함
 	var content = req.body.review_content;
 	var score = req.body.rate;
 	var datas = [product_code,user,content, score];
@@ -55,7 +60,7 @@ router.post('/write_review', function(req, res, next) {
             if (err) console.error("err : " + err);
             console.log("rows : " + JSON.stringify(rows));
 
-            res.redirect('/detail');
+            res.redirect('/detail/'+product_code);
             connection.release();
 
             // Don't use the connection here, it has been returned to the pool.

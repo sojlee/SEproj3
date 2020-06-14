@@ -40,7 +40,7 @@ router.post('/', function(req, res, next) {
 			if(passwd === hashPassword){
 				req.session.email = email;
 				req.session.grade = grade;
-				req.session.id = id;
+				req.session.uid = id;
 				console.log(req.session);
 				res.send("<script> alert('로그인 성공'); location.href='/';</script>");
 			}
