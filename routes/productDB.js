@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
 	pool.getConnection(function (err, connection) {
         if(err) throw err;
         // Use the connection
-        var sqlForSelectList = "SELECT p_code, p_name, p_desc, p_img, p_price, p_amount, update_date FROM product";
+        var sqlForSelectList = "SELECT p_code, p_name, p_desc, p_price, p_amount, update_date FROM product";
         connection.query(sqlForSelectList, function (err, rows){
             if (err) console.error("err : " + err);
             console.log("rows : " + JSON.stringify(rows));
@@ -68,7 +68,7 @@ router.get('/update/:p_code', function(req, res, next) {
 	pool.getConnection(function (err, connection) {
 				if(err) throw err;
 				// Use the connection
-				var sqlForSelectList = "SELECT p_code, p_name, p_desc, p_img, p_price, p_amount, update_date FROM product where p_code = ?";
+				var sqlForSelectList = "SELECT p_code, p_name, p_desc, p_price, p_amount, update_date FROM product where p_code = ?";
 				connection.query(sqlForSelectList, p_code, function (err, rows){
 						if (err) console.error("err : " + err);
 						console.log("rows : " + JSON.stringify(rows));
