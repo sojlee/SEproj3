@@ -194,7 +194,9 @@
               <li class="col-sm-1">
                 <h6>QTY</h6>
               </li>
-
+              <li class="col-sm-2">
+                <h6>TOTAL</h6>
+              </li>
               <li class="col-sm-1"> </li>
             </ul>
           </div>
@@ -223,20 +225,13 @@
             <!-- QTY -->
             <li class="col-sm-1">
               <div class="position-center-center">
-                <div class="quinty">
-                  <!-- QTY -->
-                  <select class="selectpicker">
-                    <option>1</option>
-                    <option>2</option>
-                    <option>3</option>
-                  </select>
-                </div>
+                <div class="quinty"><%=rows[i].amount%></div>
               </div>
             </li>
 
             <!-- TOTAL PRICE -->
             <li class="col-sm-2">
-              <div class="position-center-center"> <span class="price"><%=rows[i].p_price%><small>won</small></span> </div>
+              <div class="position-center-center"> <span class="price"><%=total[i]%><small>won</small></span> </div>
             </li>
 
             <!-- REMOVE -->
@@ -246,7 +241,11 @@
           </ul>
           <%}%>
         </div>
+        <li class="col-md-12">
+          <a href="/checkout" class="btn btn-big btn-dark">결제하기</a> 
+        </li>
       </div>
+
     </section>
 
     <!--======= PAGES INNER =========-->

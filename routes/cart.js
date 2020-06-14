@@ -13,6 +13,7 @@ var pool = mysql.createPool({
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+		var total = new Array();
 		pool.getConnection(function (err, connection) {
 		// review 테이블에 insert한다.
 			var selectreview = 'select * from product as p join mycart as c on p.p_code = c.product_p_code where c.user_id = ?';
@@ -21,7 +22,10 @@ router.get('/', function(req, res, next) {
 							console.log("rows : " + JSON.stringify(rows));
 							console.log(rows[0].p_name);
 							console.log(rows[1].p_price);
-							res.render('./shop/shopping-cart.html', {session:req.session, rows:rows});
+							for (var i = 0; i < rows.length; i ++){
+								total[i] = rows[i].p_price * rows[i].amount;
+							}
+							res.render('./shop/shopping-cart.html', {session:req.session, rows:rows, total:total});
 							connection.release();
 			});
 		});
