@@ -32,15 +32,15 @@
 
 <!-- JavaScripts -->
 <script src="./js/modernizr.js"></script>
-<script src="assets/plugins/jquery/jquery-3.1.0.min.js"></script>
-<script src="assets/plugins/bootstrap/js/bootstrap.min.js"></script>
-<script src="assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
-<script src="assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>
-<script src="assets/plugins/switchery/switchery.min.js"></script>
-<script src="assets/plugins/datatables/js/jquery.datatables.min.js"></script>
-<script src="assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
-<script src="assets/js/ecaps.min.js"></script>
-<script src="assets/js/pages/table-data.js"></script>
+<script src="./assets/plugins/jquery/jquery-3.1.0.min.js"></script>
+<script src="./assets/plugins/bootstrap/js/bootstrap.min.js"></script>
+<script src="./assets/plugins/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+<script src="./assets/plugins/uniform/js/jquery.uniform.standalone.js"></script>
+<script src="./assets/plugins/switchery/switchery.min.js"></script>
+<script src="./assets/plugins/datatables/js/jquery.datatables.min.js"></script>
+<script src="./assets/plugins/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+<script src="./assets/js/ecaps.min.js"></script>
+<script src="./assets/js/pages/table-data.js"></script>
 
 <!-- Online Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -174,16 +174,15 @@
 
             <!-- Popular Images Slider -->
             <div class="col-md-7">
-              <img class="img-responsive" src="./images/large-img-1.jpg"  alt="">
+              <img class="img-responsive" src="<%=rows.large_img%>"  alt="">
             </div>
 
             <!-- COntent -->
             <div class="col-md-5">
-              <h4>프리지아</h4>
-              <span class="price">2,000 원</span>
+              <h4><%=rows.p_name%></h4>
+              <span class="price"><%=rows.p_price%>원</span>
 
               <!-- Sale Tags -->
-              <div class="on-sale"> 10% <span>OFF</span> </div>
               <ul class="item-owner">
                 <li>원산지 :<span> 한국</span></li>
               </ul>
@@ -200,17 +199,17 @@
                   <li class="col-xs-4">
                     <div class="quinty">
                       <!-- QTY -->
-                      <select class="selectpicker">
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
-                        <option>4</option>
-                        <option>5</option>
-                        <option>6</option>
-                        <option>7</option>
-                        <option>8</option>
-                        <option>9</option>
-                        <option>10</option>
+                      <select name="p_amount" id="p_amount" class="selectpicker">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
                       </select>
                     </div>
                   </li>
@@ -221,9 +220,10 @@
 
                 <ul class="row margin-top-30">
                   <!-- ADD TO CART -->
-                  <li class="col-xs-6"> <a href="#." class="btn">ADD TO CART</a></li>
+                  <li class="col-xs-6">
+                    <button type="button" class="btn" id="addcartBtn" name="addcartBtn">ADD TO CART</button>
+                  </li>
                 </ul>
-
                 <!-- INFOMATION -->
                 <div class="inner-info">
                   <h6>DELIVERY INFORMATION</h6>
@@ -248,14 +248,14 @@
         <div class="tab-content animate fadeInUp" data-wow-delay="0.4s">
           <!-- DESCRIPTION -->
           <div role="tabpanel" class="tab-pane fade in active" id="descr">
-            <p>저희 농장에서 기르는 프리지아 노란색 꽃입니다. 꽃말은 '천진난만'과 '자기자랑', '청함'과 '순결', '차분한 사랑'과 '영원한 우정', '순진','새 출발을 응원합니다'.</p>
+            <p><%=rows.p_desc%></p>
           </div>
 
-          <!-- REVIEW -->
+          <!-- Review -->
           <div role="tabpanel" class="tab-pane fade" id="review">
             <h6>REVIEWS LIST</h6>
 
-              <!-- REVIEW PEOPLE 1 -->
+              <!-- Review PEOPLE 1 -->
               <div class="table-responsive">
                 <table class="display table" style="padding:2px; width:100%;">
                 <thead>
@@ -266,23 +266,23 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <!--리뷰 리스트 불러오기 -->
+                  <% for(var i = 0; i < review.length; i ++) { %>
+                    <tr>
+                      <td style="width:20%; text-align:center;"><%=review[i].user_id%></td>
+                      <td style="width:60%; text-align:center;"><%=review[i].content%></td>
+                      <td style="width:20%; text-align:center;"><%=review[i].score%></td>
+                    </tr>
+                  <%}%>
                 </tbody>
                 </table>
               </div>
               <hr>
-            
 
-              <!-- REVIEW 추가 : 로그인 시에만 작성가능 -->
-              <% if(session.email){%>
-              <h6 class="margin-t-40">REVIEW 새로 작성하기</h6>
+
+              <!-- Review 추가 : 로그인 시에만 작성가능 -->
+              <h6 class="margin-t-40"></h6>
               <form action="/detail/write_review" method="post" onsubmit="return onWriteSubmit()" enctype="multipart/form-data">
                 <ul class="row">
-                  <li class="col-sm-6">
-                    <label> 당신의 EMAIL : 
-                      <b><%= session.email %></b>
-                    </label>
-                  </li>
                   <li class="col-sm-12">
                     <label> YOUR REVIEW (최대 100자)
                       <textarea name="review_content" id="review_content" maxlength="100"></textarea>
@@ -303,120 +303,22 @@
                   </li>
                     <% if(session.email){%>
                   <li class="col-sm-6">
-                    <button type="submit" class="btn btn-dark btn-small pull-right no-margin">POST REVIEW</button>
+                    <button type="button" class="btn btn-dark btn-small pull-right no-margin">POST REVIEW</button>
+                  </li>
+                  <%} else {%>
+                  <li class="col-sm-6">
+                    <button type="button" class="btn btn-dark btn-small pull-right no-margin" onclick="alert('로그인 한 회원만 리뷰를 작성할 수 있습니다.');">POST REVIEW</button>
                   </li>
                   <%}%>
                 </ul>
               </form>
-              <script>
-                function onWriteSubmit()
-              {
-                // review에서 넘어오는 값 확인
-                var content = document.getElementById("review_content").value;
-                alert(content);
-                  if(content.length == 0)
-                  {
-                      var message = "본문 내용을 입력해 주세요";
-                      content = "";
-                      document.getElementById("review_content").focus();
-                      alert(message);
-                      return false;
-                  }
 
-                alert(document.getElementById("rate").value);
-              }
-              </script>
             </div>
         </div>
       </div>
     </section>
 
-    <!-- Popular Products -->
-    <section class="light-gray-bg padding-top-150 padding-bottom-150">
-      <div class="container">
 
-        <!-- Main Heading -->
-        <div class="heading text-center">
-          <h4>상품추천</h4>
-          <p>저희 농장에서 인기 있고 추천드리는 꽃들입니다.</p> </div>
-
-        <!-- Popular Item Slide : 가장 많이 팔리는 5개의 꽃들을 추천-->
-        <div class="papular-block block-slide">
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="./images/product-1.jpg" alt="" > <img class="img-2" src="./images/product-2.jpg" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-center-center">
-                  <div class="inn"><a href="./images/product-1.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">꽃1</a>
-              <p>꽃1의 설명</p>
-            </div>
-            <!-- Price -->
-            <span class="price">299</span> </div>
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="./images/product-2.jpg" alt="" > <img class="img-2" src="./images/product-2.jpg" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-center-center">
-                  <div class="inn"><a href="./images/product-2.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">꽃2</a>
-              <p>꽃2의 설명</p>
-            </div>
-            <!-- Price -->
-            <span class="price">299</span> </div>
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="./images/product-3.jpg" alt="" > <img class="img-2" src="./images/product-2.jpg" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-center-center">
-                  <div class="inn"><a href="./images/product-3.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">꽃3</a>
-              <p>꽃3의 설명</p>
-            </div>
-            <!-- Price -->
-            <span class="price">299</span> </div>
-
-          <!-- Item -->
-          <div class="item">
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="./images/product-4.jpg" alt="" > <img class="img-2" src="./images/product-2.jpg" alt="" >
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-center-center">
-                  <div class="inn"><a href="./images/product-4.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">꽃4</a>
-              <p>꽃4의 설명</p>
-            </div>
-            <!-- Price -->
-            <span class="price">299</span> </div>
-        </div>
-      </div>
-    </section>
 
   <!--======= FOOTER =========-->
   <footer>
@@ -467,7 +369,7 @@
       <!-- Rights -->
 
       <div class="rights">
-        <p>©  2017 PAVSHOP All right reserved. </p>
+        <p>©  2020 FFORU All right reserved. </p>
         <div class="scroll"> <a href="#wrap" class="go-up"><i class="lnr lnr-arrow-up"></i></a> </div>
       </div>
     </div>
@@ -477,6 +379,7 @@
 
 </div>
 <script src="./js/jquery-1.11.3.min.js"></script>
+
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/own-menu.js"></script>
 <script src="./js/jquery.lighter.js"></script>

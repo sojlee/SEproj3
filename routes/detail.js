@@ -8,21 +8,42 @@ var pool = mysql.createPool({
 	port: dbConfig.port,
 	user: dbConfig.user,
 	password: dbConfig.password,
-	database: dbConfig.database
+	database: dbConfig.database,
+	multipleStatements : true
 });
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.render('./shop/product-detail_01.html', {session:req.session});
+router.get('/:p_code', function(req, res, next) {
+	var p_code = req.params.p_code;
+
+	pool.getConnection(function (err, connection) {
+	// review 테이블에 insert한다.
+		var selectproduct = 'select * from product where p_code = ?;';
+		var ps = mysql.format(selectproduct, p_code);
+		var selectreview = 'select * from review where product_p_code = ?;';
+		var rs = mysql.format(selectreview, p_code);
+		connection.query(ps+rs, function (err, rows) {
+						if (err) console.error("err : " + err);
+						console.log("rows : " + JSON.stringify(rows));
+						var product = rows[0];
+						var review = rows[1];
+
+						console.log(product);
+						console.log(review);
+
+						res.render('./shop/product-detail_01.html', {session:req.session, rows:product[0], review:review});
+						connection.release();
+		});
+	});
 });
 
 /* 리뷰 작성 post 로직 */
 router.post('/write_review', function(req, res, next) {
 	// review 테이블에 쓸 값을 가져온다.
-	var product_code = 11; // 임의의 값, sql문으로 가져와야함
-	var user = req.session.email; // 쓴 작성자 id, 세션이나 sql을 통해서 id를 가져와야함
-	var content = "req.body.review_content";
-	var score = 3; //"req.body.rate";
+	var product_code = req.body.p_code; // 임의의 값, sql문으로 가져와야함
+	var user = req.session.id; // 쓴 작성자 id, 세션이나 sql을 통해서 id를 가져와야함
+	var content = req.body.review_content;
+	var score = req.body.rate;
 	var datas = [product_code,user,content, score];
 
 	console.log(datas);
@@ -33,7 +54,7 @@ router.post('/write_review', function(req, res, next) {
         connection.query(insertReview, datas, function (err, rows) {
             if (err) console.error("err : " + err);
             console.log("rows : " + JSON.stringify(rows));
-		
+
             res.redirect('/detail');
             connection.release();
 

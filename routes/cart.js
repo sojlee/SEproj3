@@ -16,4 +16,8 @@ router.get('/', function(req, res, next) {
   res.render('./shop/shopping-cart.html', {session:req.session});
 });
 
+router.post('/', function(req, res, next) {
+  res.render('./shop/shopping-cart.html', {session:req.session});
+});
+
 module.exports = router;
