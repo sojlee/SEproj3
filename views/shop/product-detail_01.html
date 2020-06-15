@@ -72,13 +72,13 @@
       <div class="container">
 
         <!-- Logo -->
-        <div class="logo"> <a href="/"><img class="img-responsive" src="./images/logo.png" alt="" ></a> </div>
+        <div class="logo"> <a href="index.html"><img class="img-responsive" src="./images/logo.png" alt="" ></a> </div>
         <nav class="navbar ownmenu">
           <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"><i class="fa fa-navicon"></i></span> </button>
           </div>
 
-           <!-- NAV -->
+          <!-- NAV -->
           <div class="collapse navbar-collapse" id="nav-open-btn">
             <ul class="nav">
               <li> <a href="/"> Home</a> </li>
@@ -111,48 +111,41 @@
               <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
                 <ul class="dropdown-menu">
                   <% if(session.email){%>
-                  <li><a href="/cart">MY CART</a></li>
-                  <li><a href="/checkout">ORDER LIST</a></li>
                   <li><a href="/info">ACCOUNT INFO</a></li>
                   <li><a href="/logout">LOGOUT</a></li>
                   <%} else {%>
-                  <li><a href="/login">MY CART</a></li>
-                  <li><a href="/login">ACCOUNT INFO</a></li>
                   <li><a href="/login">LOGIN</a></li>
                   <li><a href="/register">REGISTER</a><li>
                   <%}%>
                 </ul>
               </li>
 
-              <!-- USER BASKET 장바구니 : SQL을 통해서 가져와야 됨 -->
-              <li class="dropdown user-basket"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
+              <!-- USER BASKET -->
+              <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="icon-basket-loaded"></i> </a>
                 <ul class="dropdown-menu">
-                  <li>
-                    <div class="media-left">
-                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="./images/cart-img-1.jpg" alt="..."> </a> </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading">WOOD CHAIR</h6>
-                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
-                  </li>
-                  <li>
-                    <div class="media-left">
-                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="./images/cart-img-2.jpg" alt="..."> </a> </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading">WOOD STOOL</h6>
-                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
-                  </li>
-                  <li>
-                    <h5 class="text-center">SUBTOTAL: 258.00 USD</h5>
-                  </li>
-                  <li class="margin-0">
-                    <div class="row">
-                      <div class="col-xs-6"> <a href="shopping-cart.html" class="btn">VIEW CART</a></div>
-                      <div class="col-xs-6 "> <a href="checkout.html" class="btn">CHECK OUT</a></div>
-                    </div>
-                  </li>
+                  <% if(session.email){%>
+                  <li><a href="/cart">MY CART</a></li>
+                  <li><a href="/orderlist">ORDER LIST</a></li>
+                  <%} else {%>
+                  <li><a href="/login">MY CART</a></li>
+                  <li><a href="/login">ORDER LIST</a></li>
+                  <%}%>
                 </ul>
+              </li>
+
+              <!-- SEARCH BAR -->
+              <li class="dropdown"> <a href="javascript:void(0);" class="search-open"><i class=" icon-magnifier"></i></a>
+                <div class="search-inside animated bounceInUp"> <i class="icon-close search-close"></i>
+                  <div class="search-overlay"></div>
+                  <div class="position-center-center">
+                    <div class="search">
+                      <form>
+                        <input type="search" placeholder="Search Shop">
+                        <button type="submit"><i class="icon-check"></i></button>
+                      </form>
+                    </div>
+                  </div>
+                </div>
               </li>
             </ul>
           </div>
@@ -326,62 +319,83 @@
       </div>
     </section>
 
+<!-- About -->
+<section class="small-about padding-top-150 padding-bottom-150">
+  <div class="container">
+
+    <!-- Main Heading -->
+    <div class="heading text-center">
+      <h4>about FFORU</h4>
+      <p>Flower For U </p>
+      <p>저희 가게는 고객의 만족을 최우선으로 하여, 감각적이고 신선한 상품들을 제공합니다. 고객님들의 소중한 추억과 함께하겠습니다. </p>
+    </div>
+
+    <!-- Social Icons -->
+    <ul class="social_icons">
+      <li><a href="#."><i class="icon-social-facebook"></i></a></li>
+      <li><a href="#."><i class="icon-social-twitter"></i></a></li>
+      <li><a href="#."><i class="icon-social-tumblr"></i></a></li>
+      <li><a href="#."><i class="icon-social-youtube"></i></a></li>
+      <li><a href="#."><i class="icon-social-dribbble"></i></a></li>
+    </ul>
+  </div>
+</section>
 
 
-  <!--======= FOOTER =========-->
-  <footer>
-    <div class="container">
+<!--======= FOOTER =========-->
+<footer>
+  <div class="container">
 
-      <!-- ABOUT Location -->
-      <div class="col-md-3">
-        <div class="about-footer"> <img class="margin-bottom-30" src="./images/logo-foot.png" alt="" >
-          <p><i class="icon-pointer"></i> 서울특별시 노원구 광운로 20</p>
-          <p><i class="icon-call-end"></i> 02-940-5114</p>
-          <p><i class="icon-envelope"></i> http://www.kw.ac.kr/</p>
-        </div>
-      </div>
-
-      <!-- HELPFUL LINKS -->
-      <div class="col-md-3">
-        <h6>HELPFUL LINKS</h6>
-        <ul class="link">
-          <li><a href="#."> Products</a></li>
-          <li><a href="#."> Features</a></li>
-          <li><a href="#."> Privacy Policy</a></li>
-          <li><a href="#."> Press Kit </a></li>
-        </ul>
-      </div>
-
-      <!-- SHOP -->
-      <div class="col-md-3">
-        <h6>SHOP</h6>
-        <ul class="link">
-          <li><a href="#."> About Us</a></li>
-          <li><a href="#."> Shipping Methods</a></li>
-          <li><a href="#."> Contact</a></li>
-          <li><a href="#."> Support</a></li>
-        </ul>
-      </div>
-
-      <!-- MY ACCOUNT -->
-      <div class="col-md-3">
-        <h6>MY ACCOUNT</h6>
-        <ul class="link">
-          <li><a href="#."> Login</a></li>
-          <li><a href="#."> My Account</a></li>
-          <li><a href="#."> My Cart</a></li>
-          <li><a href="#."> Checkout</a></li>
-        </ul>
-      </div>
-
-      <!-- Rights -->
-
-      <div class="rights">
-        <p>©  2020 FFORU All right reserved. </p>
-        <div class="scroll"> <a href="#wrap" class="go-up"><i class="lnr lnr-arrow-up"></i></a> </div>
+    <!-- ABOUT Location -->
+    <div class="col-md-3">
+      <div class="about-footer"> <img class="margin-bottom-30" src="./images/logo-foot.png" alt="" >
+        <p><i class="icon-pointer"></i> 서울특별시 노원구 광운로 20</p>
+        <p><i class="icon-call-end"></i> 02-940-5114</p>
+        <p><i class="icon-envelope"></i> http://www.kw.ac.kr/</p>
       </div>
     </div>
-  </footer>
+
+    <!-- HELPFUL LINKS -->
+    <div class="col-md-3">
+      <h6>HELPFUL LINKS</h6>
+      <ul class="link">
+        <li><a href="#."> Products</a></li>
+        <li><a href="#."> Features</a></li>
+        <li><a href="#."> Privacy Policy</a></li>
+        <li><a href="#."> Press Kit </a></li>
+      </ul>
+    </div>
+
+    <!-- SHOP -->
+    <div class="col-md-3">
+      <h6>SHOP</h6>
+      <ul class="link">
+        <li><a href="#."> About Us</a></li>
+        <li><a href="#."> Shipping Methods</a></li>
+        <li><a href="#."> Contact</a></li>
+        <li><a href="#."> Support</a></li>
+      </ul>
+    </div>
+
+    <!-- MY ACCOUNT -->
+    <div class="col-md-3">
+      <h6>MY ACCOUNT</h6>
+      <ul class="link">
+        <li><a href="#."> Login</a></li>
+        <li><a href="#."> My Account</a></li>
+        <li><a href="#."> My Cart</a></li>
+        <li><a href="#."> Checkout</a></li>
+      </ul>
+    </div>
+
+    <!-- Rights -->
+
+    <div class="rights">
+      <p>©  2020 FFORU All right reserved. </p>
+      <div class="scroll"> <a href="#wrap" class="go-up"><i class="lnr lnr-arrow-up"></i></a> </div>
+    </div>
+  </div>
+</footer>
 
   <!--======= RIGHTS =========-->
 
