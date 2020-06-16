@@ -21,6 +21,9 @@ var cart = require('./routes/cart');
 var logout = require('./routes/logout');
 var info = require('./routes/info');
 var userDB = require('./routes/userDB');
+var orderlist = require('./routes/orderlist');
+var selllist = require('./routes/selllist');
+var buy = require('./routes/buy');
 
 var app = express();
 
@@ -65,6 +68,9 @@ app.use('/checkout', checkout);
 app.use('/cart', cart);
 app.use('/info', info);
 app.use('/userDB', userDB);
+app.use('/orderlist', orderlist);
+app.use('/selllist', selllist);
+app.use('/buy', buy);
 
 app.use('/hi', (req, res, next)=>{
     res.send('Hi? <img src="./1024.png">');
