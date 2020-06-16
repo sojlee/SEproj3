@@ -22,7 +22,7 @@
 <link href="./css/responsive.css" rel="stylesheet">
 
 <!-- JavaScripts -->
-<script src="js/modernizr.js"></script>
+<script src="./js/modernizr.js"></script>
 
 <!-- Online Fonts -->
 <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -140,7 +140,7 @@
   <section class="sub-bnr" data-stellar-background-ratio="0.5">
     <div class="position-center-center">
       <div class="container">
-        <h4>REGISTER</h4>
+        <h4>구매 내역</h4>
       </div>
     </div>
   </section>
@@ -149,96 +149,73 @@
   <div id="content">
 
     <!--======= PAGES INNER =========-->
-    <section class="chart-page padding-top-100 padding-bottom-100">
+    <section class="padding-top-100 padding-bottom-100 pages-in chart-page">
       <div class="container">
 
         <!-- Payments Steps -->
-        <div class="shopping-cart">
-
-          <!-- SHOPPING INFORMATION -->
-          <div class="cart-ship-info register">
-            <div class="row">
-
-              <!-- ESTIMATE SHIPPING & TAX -->
-              <div class="col-sm-12">
-                <h6>REGISTER</h6>
-                <form id="joinForm" action="/register" method="post">
-                  <ul class="row">
-                    <!-- Name -->
-                    <li class="col-md-6">
-                      <label> *아이디
-                        <input type="text" name="id" id="id" value="" placeholder="">
-                      </label>
-                    </li>
-                    <!-- Name -->
-                    <li class="col-md-6">
-                      <label> *이름
-                        <input type="text" name="name" id="name" value="" placeholder="">
-                      </label>
-                    </li>
-                    <!-- LAST NAME -->
-                    <li class="col-md-6">
-                      <label> *생년월일
-                        <input type="text" name="birth" id="birth" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- EMAIL ADDRESS -->
-                    <li class="col-md-6">
-                      <label> *이메일
-                        <input type="text" name="email" id="email" value="" placeholder="">
-                      </label>
-                    </li>
-                    <!-- PHONE -->
-                    <li class="col-md-6">
-                      <label> *핸드폰 번호
-                        <input type="text" name="phone" id="phone" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- LAST NAME -->
-                    <li class="col-md-6">
-                      <label> *비밀번호
-                        <input type="password" name="passwd" id="passwd" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- LAST NAME -->
-                    <li class="col-md-6">
-                      <label> *비밀번호 확인
-                        <input type="password" name="pwdcheck" id="pwdcheck" value="" placeholder="">
-                      </label>
-                    </li>
-                    <li class="col-md-6">
-                      <!-- ADDRESS -->
-                      <label>*주소
-                        <input type="text" name="address1" id="address1" value="" placeholder="">
-                      </label>
-                    </li>
-                    <li class="col-md-6">
-                      <!-- ADDRESS -->
-                      <label>*상세 주소
-                        <input type="text" name="address2" id="address2" value="" placeholder="">
-                      </label>
-                    </li>
-                    <li class="col-md-6">
-                      <!-- ADDRESS -->
-                      <label>추천인 아이디
-                        <input type="text" name="friend" id="friend" value="" placeholder="">
-                      </label>
-                    </li>
-
-                    <!-- PHONE -->
-                    <li class="col-md-6">
-                      <button type="button" id="joinBtn" class="btn">지금 가입하기</button>
-                    </li>
-                  </ul>
-                </form>
-              </div>
-            </div>
+        <div class="shopping-cart text-center">
+          <div class="cart-head">
+            <ul class="row">
+              <!-- ORDER NUMBER -->
+              <li class="col-sm-2 text-left">
+                <h6>주문번호</h6>
+              </li>
+              <!-- ADDRESS -->
+              <li class="col-sm-2">
+                <h6>주소</h6>
+              </li>
+              <!-- 주문날짜 -->
+              <li class="col-sm-1">
+                <h6>주문날짜</h6>
+              </li>
+              <li class="col-sm-2">
+                <h6>배송상태</h6>
+              </li>
+              <li class="col-sm-1"> </li>
+            </ul>
           </div>
-        </div>
+          <% for (var i = 0; i < rows.length; i++) {%>
+          <!-- Cart Details -->
+          <ul class="row cart-details">
+            <li class="col-sm-6">
+              <div class="media">
+
+                <!-- ORDER NUMBER -->
+                <div class="media-body">
+                  <div class="position-center-center">
+                    <h5><%=rows[i].o_num%></h5>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <!-- ADDRESS -->
+            <li class="col-sm-2">
+              <div class="position-center-center"> <%=rows[i].c_addr%> </div>
+            </li>
+
+            <!-- OREDER DATE -->
+            <li class="col-sm-1">
+              <div class="position-center-center">
+                <div class="quinty"><%=rows[i].o_date%></div>
+              </div>
+            </li>
+
+            <!-- SHIPPING STATE -->
+            <li class="col-sm-2">
+              <div class="position-center-center">
+                <% if (rows[i].ship == 0) { %>
+                  배송준비중
+                <% } %>
+                <% else { %>
+                  배송완료
+                <% } %>
+                </div>
+            </li>
+          </ul>
+          <% } %>
       </div>
+
     </section>
   </div>
 
@@ -324,84 +301,6 @@
 
 </div>
 <script src="./js/jquery-1.11.3.min.js"></script>
-<script type="text/javascript">
-  $(function(){
-    $("#joinBtn").click(
-        				function(){
-                  if($("#id").val()=="")
-                  {
-                    alert("아이디를 꼭 입력 하세요.");
-                    $("#id").focus();
-                    return;
-                  }
-
-                  if($("#name").val()=="")
-                  {
-                    alert("이름을 꼭 입력 하세요.");
-                    $("#name").focus();
-                    return;
-                  }
-
-                  if($("#birth").val()=="")
-                  {
-                    alert("생년월일을 꼭 입력 하세요.");
-                    $("#birth").focus();
-                    return;
-                  }
-
-                  if($("#email").val()=="")
-                  {
-                    alert("이메일을 꼭 입력 하세요.");
-                    $("#email").focus();
-                    return;
-                  }
-
-                  if($("#phone").val()=="")
-                  {
-                    alert("핸드폰 번호를 꼭 입력 하세요.");
-                    $("#phone").focus();
-                    return;
-                  }
-
-                  if($("#passwd").val()=="")
-                  {
-                    alert("비밀번호를 꼭 입력 하세요.");
-                    $("#passwd").focus();
-                    return;
-                  }
-
-                  if($("#pwdcheck").val()=="")
-                  {
-                    alert("비밀번호 확인을 위해 꼭 입력 하세요.");
-                    $("#pwdcheck").focus();
-                    return;
-                  }
-
-                  if($("#passwd").val()!=$("#pwdcheck").val())
-                  {
-                    alert("비밀번호가 일치하지 않습니다.");
-                    $("#pwdcheck").focus();
-                    return;
-                  }
-
-                  if($("#address1").val()=="")
-                  {
-                    alert("주소를 꼭 입력 하세요.");
-                    $("#address1").focus();
-                    return;
-                  }
-
-                  if($("#address2").val()=="")
-                  {
-                    alert("상세주소를 꼭 입력 하세요.");
-                    $("#address2").focus();
-                    return;
-                  }
-
-                  $("#joinForm").submit();
-                })
-            });
-</script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/own-menu.js"></script>
 <script src="./js/jquery.lighter.js"></script>
