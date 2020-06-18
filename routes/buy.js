@@ -16,6 +16,7 @@ var pool = mysql.createPool({
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 		var user = req.session.uid; // 쓴 작성자 id, 세션이나 sql을 통해서 id를 가져와야함
+		
 		pool.getConnection(function (err, connection) {
 		// 해당 유저의 order 테이블에서 가져온다.
 			var selectbuy = "select * from orders where customer = ?";
