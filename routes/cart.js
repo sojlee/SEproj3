@@ -21,7 +21,7 @@ router.get('/', function(req, res, next) {
 							if (err) console.error("err : " + err);
 							console.log("rows : " + JSON.stringify(rows));
 							console.log(rows[0].p_name);
-							console.log(rows[1].p_price);
+							console.log(rows[0].p_price);
 							for (var i = 0; i < rows.length; i ++){
 								total[i] = rows[i].p_price * rows[i].amount;
 							}

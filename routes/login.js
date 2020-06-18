@@ -42,7 +42,7 @@ router.post('/', function(req, res, next) {
 				req.session.grade = grade;
 				req.session.uid = id;
 				console.log(req.session);
-				res.send("<script> alert('로그인 성공'); location.href='/';</script>");
+				res.send("<script> alert('환영합니다!'); location.href='/';</script>");
 			}
 			else{
 				res.send("<script> alert('아이디 혹은 비밀번호가 일치하지 않습니다.'); history.back();</script>");

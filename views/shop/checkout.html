@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="M_Adnan">
-<title>PAVSHOP - Multipurpose eCommerce HTML5 Template</title>
+<title>FFORU - checkout</title>
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 <link rel="stylesheet" type="text/css" href="rs-plugin/css/settings.css" media="screen" />
@@ -48,115 +48,94 @@
 <!-- Wrap -->
 <div id="wrap">
 
-  <!-- header -->
-  <header>
-    <div class="sticky">
-      <div class="container">
 
-        <!-- Logo -->
-        <div class="logo"> <a href="index.html"><img class="img-responsive" src="./images/logo.png" alt="" ></a> </div>
-        <nav class="navbar ownmenu">
-          <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"><i class="fa fa-navicon"></i></span> </button>
-          </div>
+    <!-- header -->
+    <header>
+      <div class="sticky">
+        <div class="container">
 
-           <!-- NAV -->
-          <div class="collapse navbar-collapse" id="nav-open-btn">
-            <ul class="nav">
-              <li> <a href="/"> Home</a> </li>
-              </li>
-              <li class="dropdown"> <a href="/product" class="dropdown-toggle" data-toggle="dropdown">Flowers</a>
-                <ul class="dropdown-menu">
-                  <li> <a href="/product">a flower</a> </li>
-                  <li> <a href="shop_01.html">bouquet </a> </li>
-                  <li> <a href="shop_02.html">wreath</a> </li>
-                  <li> <a href="shop_03.html">fake flowers</a> </li>
-                </ul>
-              </li>
-              <!-- Two Link Option -->
-              <li class="dropdown"> <a href="/notice" class="dropdown-toggle" data-toggle="dropdown">notice</a>
-                <ul class="dropdown-menu">
-                      <li> <a href="shop_01.html">notice</a></li>
-                      <li> <a href="shop_01.html">event</a></li>
-                </ul>
-              </li>
+          <!-- Logo -->
+          <div class="logo"> <a href="index.html"><img class="img-responsive" src="./images/logo.png" alt="" ></a> </div>
+          <nav class="navbar ownmenu">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"><i class="fa fa-navicon"></i></span> </button>
+            </div>
 
-              <li> <a href="contact.html"> contact</a> </li>
-            </ul>
-          </div>
+            <!-- NAV -->
+            <div class="collapse navbar-collapse" id="nav-open-btn">
+              <ul class="nav">
+                <li> <a href="/"> Home</a> </li>
+                </li>
+                <li class="dropdown"> <a href="/product" class="dropdown-toggle" data-toggle="dropdown">Flowers</a>
+                  <ul class="dropdown-menu">
+                    <li> <a href="/product">a flower</a> </li>
+                    <li> <a href="shop_01.html">bouquet </a> </li>
+                    <li> <a href="shop_02.html">wreath</a> </li>
+                    <li> <a href="shop_03.html">fake flowers</a> </li>
+                  </ul>
+                </li>
+                <!-- Two Link Option -->
+                <li class="dropdown"> <a href="/notice" class="dropdown-toggle" data-toggle="dropdown">notice</a>
+                  <ul class="dropdown-menu">
+                        <li> <a href="shop_01.html">notice</a></li>
+                        <li> <a href="shop_01.html">event</a></li>
+                  </ul>
+                </li>
 
-          <!-- Nav Right -->
-          <div class="nav-right">
-            <ul class="navbar-right">
+                <li> <a href="contact.html"> contact</a> </li>
+              </ul>
+            </div>
 
-              <!-- USER INFO -->
-              <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
-                <ul class="dropdown-menu">
-                  <% if(session.email){%>
-                  <li><a href="/cart">MY CART</a></li>
-                  <li><a href="/checkout">ORDER LIST</a></li>
-                  <li><a href="/info">ACCOUNT INFO</a></li>
-                  <li><a href="/logout">LOGOUT</a></li>
-                  <%} else {%>
-                  <li><a href="/login">MY CART</a></li>
-                  <li><a href="/login">ACCOUNT INFO</a></li>
-                  <li><a href="/login">LOGIN</a></li>
-                  <li><a href="/register">REGISTER</a><li>
-                  <%}%>
-                </ul>
-              </li>
+            <!-- Nav Right -->
+            <div class="nav-right">
+              <ul class="navbar-right">
 
-              <!-- USER BASKET -->
-              <li class="dropdown user-basket"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true"><i class="icon-basket-loaded"></i> </a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <div class="media-left">
-                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="./images/cart-img-1.jpg" alt="..."> </a> </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading">WOOD CHAIR</h6>
-                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
-                  </li>
-                  <li>
-                    <div class="media-left">
-                      <div class="cart-img"> <a href="#"> <img class="media-object img-responsive" src="./images/cart-img-2.jpg" alt="..."> </a> </div>
-                    </div>
-                    <div class="media-body">
-                      <h6 class="media-heading">WOOD STOOL</h6>
-                      <span class="price">129.00 USD</span> <span class="qty">QTY: 01</span> </div>
-                  </li>
-                  <li>
-                    <h5 class="text-center">SUBTOTAL: 258.00 USD</h5>
-                  </li>
-                  <li class="margin-0">
-                    <div class="row">
-                      <div class="col-xs-6"> <a href="shopping-cart.html" class="btn">VIEW CART</a></div>
-                      <div class="col-xs-6 "> <a href="checkout.html" class="btn">CHECK OUT</a></div>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+                <!-- USER INFO -->
+                <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" ><i class="icon-user"></i> </a>
+                  <ul class="dropdown-menu">
+                    <% if(session.email){%>
+                    <li><a href="/info">ACCOUNT INFO</a></li>
+                    <li><a href="/logout">LOGOUT</a></li>
+                    <%} else {%>
+                    <li><a href="/login">LOGIN</a></li>
+                    <li><a href="/register">REGISTER</a><li>
+                    <%}%>
+                  </ul>
+                </li>
 
-              <!-- SEARCH BAR -->
-              <li class="dropdown"> <a href="javascript:void(0);" class="search-open"><i class=" icon-magnifier"></i></a>
-                <div class="search-inside animated bounceInUp"> <i class="icon-close search-close"></i>
-                  <div class="search-overlay"></div>
-                  <div class="position-center-center">
-                    <div class="search">
-                      <form>
-                        <input type="search" placeholder="Search Shop">
-                        <button type="submit"><i class="icon-check"></i></button>
-                      </form>
+                <!-- USER BASKET -->
+                <li class="dropdown user-acc"> <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="icon-basket-loaded"></i> </a>
+                  <ul class="dropdown-menu">
+                    <% if(session.email){%>
+                    <li><a href="/cart">MY CART</a></li>
+                    <li><a href="/orderlist">ORDER LIST</a></li>
+                    <%} else {%>
+                    <li><a href="/login">MY CART</a></li>
+                    <li><a href="/login">ORDER LIST</a></li>
+                    <%}%>
+                  </ul>
+                </li>
+
+                <!-- SEARCH BAR -->
+                <li class="dropdown"> <a href="javascript:void(0);" class="search-open"><i class=" icon-magnifier"></i></a>
+                  <div class="search-inside animated bounceInUp"> <i class="icon-close search-close"></i>
+                    <div class="search-overlay"></div>
+                    <div class="position-center-center">
+                      <div class="search">
+                        <form>
+                          <input type="search" placeholder="Search Shop">
+                          <button type="submit"><i class="icon-check"></i></button>
+                        </form>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </li>
-            </ul>
-          </div>
-        </nav>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </div>
-    </div>
-  </header>
+    </header>
 
   <!--======= SUB BANNER =========-->
   <section class="sub-bnr" data-stellar-background-ratio="0.5">
@@ -184,7 +163,6 @@
               <!-- ESTIMATE SHIPPING & TAX -->
               <div class="col-sm-7">
                 <h6>구매자</h6>
-                <form>
                   <ul class="row">
 
                     <!-- Name -->
@@ -209,11 +187,10 @@
                         <input type="text" name="s_phone" value="" placeholder="">
                     </li>
                   </ul>
-                </form>
 
                 <!-- SHIPPING info -->
                 <h6 class="margin-top-50">수령인</h6>
-                <form>
+                <form name = "orderForm" action="/checkout" method="post">
                   <ul class="row">
 
                     <!-- Name -->
@@ -222,13 +199,13 @@
                     </li>
                     <!-- LAST NAME -->
                     <li class="col-md-6">
-                        <input type="text" name="last-name" value="" placeholder="">
+                        <input type="text" name="name" value="" placeholder="" required>
                     </li>
                     <li class="col-md-6">
                       <label> *주소</label>
                     </li>
                     <li class="col-md-6">
-                        <input type="text" name="company" value="" placeholder="">
+                        <input type="text" name="address" value="" placeholder="" required>
                     </li>
                     <li class="col-md-6">
                       <!-- ADDRESS -->
@@ -236,10 +213,10 @@
                     </li>
                     <!-- TOWN/CITY -->
                     <li class="col-md-6">
-                        <input type="text" name="phone" value="" placeholder="">
+                        <input type="text" name="phone" value="" placeholder="" required>
                     </li>
                   </ul>
-                </form>
+
               </div>
 
               <!-- SUB TOTAL -->
@@ -248,6 +225,8 @@
                 <div class="order-place">
                   <div class="order-detail">
                     <% for(var i = 0; i < rows.length; i ++) { %>
+                      <input type="hidden" name="<%=rows[0].p_code%>" id="<%=rows[0].p_code%>">
+                      <input type="hidden" name="<%=rows[0].amount%>" id="<%=rows[0].amount%>">
                     <p><%=rows[i].p_name%> <span><%=rows[i].p_price%>won</span></p>
                     <% }%>
                     <!-- SUB TOTAL -->
@@ -286,7 +265,10 @@
                         </div>
                       </li>
                     </ul>
-                    <a href="#." class="btn  btn-dark pull-right margin-top-30">주문하기</a> </div>
+                    <button type="button" class="btn  btn-dark pull-right margin-top-30" id="orderBtn" name="orderBtn">결제하기</button>
+                  </form>
+                  </div>
+
                 </div>
               </div>
             </div>
@@ -374,6 +356,26 @@
 
 </div>
 <script src="./js/jquery-1.11.3.min.js"></script>
+<script type="text/javascript">
+  $(function(){
+    $("#reviewBtn").click(
+        				function(){
+                 if($("#review_content").val()==""){
+                   alert("내용을 입력해주세요.");
+                   $("#review_content").focus();
+                   return;
+                 }
+
+                  $("#reviewForm").submit();
+    });
+
+    $("#orderBtn").click(
+        				function(){
+
+                  $("#orderForm").submit();
+    });
+});
+</script>
 <script src="./js/bootstrap.min.js"></script>
 <script src="./js/own-menu.js"></script>
 <script src="./js/jquery.lighter.js"></script>

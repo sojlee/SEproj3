@@ -15,13 +15,11 @@ var pool = mysql.createPool({
 router.get('/', function(req, res, next) {
 	var total = 0;
 	pool.getConnection(function (err, connection) {
-	// review 테이블에 insert한다.
-		var selectreview = 'select p.p_name, p.p_price from product as p join mycart as c on p.p_code = c.product_p_code where c.user_id = ?';
+		var selectreview = 'select * from product as p join mycart as c on p.p_code = c.product_p_code where c.user_id = ?';
 		connection.query(selectreview, req.session.uid, function (err, rows) {
 						if (err) console.error("err : " + err);
 						console.log("rows : " + JSON.stringify(rows));
 						console.log(rows[0].p_name);
-						console.log(rows[1].p_price);
 						for (var i = 0; i < rows.length; i ++){
 							total += rows[i].p_price;
 						}
