@@ -13,10 +13,6 @@ var pool = mysql.createPool({
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-	var grade = req.session.grade;
-	if(grade != 2 || grade != 0 || grade != 1){
-		res.send("<script> alert('로그인이 필요합니다.'); history.back();</script>");
-	}
 		var total = new Array();
 		pool.getConnection(function (err, connection) {
 		// review 테이블에 insert한다.

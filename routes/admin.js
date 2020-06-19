@@ -15,7 +15,7 @@ var pool = mysql.createPool({
 /* GET users listing. */
 router.get('/', function(req, res, next) {
 	var grade = req.session.grade;
-	if(grade != 0 || grade != 1){
+	if(grade == 2){
     res.send("<script> alert('관리자, 판매자 계정만 접근 가능합니다.'); history.back();</script>");
   }
   //res.render('./admin/index.html');
