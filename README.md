@@ -14,27 +14,3 @@ url
 run
 
     npm start
-
-page:
-
-    - /
-    
-    - /login
-    
-    - /logout
-    
-    - /register
-
-    - /product 
-
-    - /detail
-    
-    - /cart
-    
-    - /checkout
-    
-    - /admin
-
-    .
-    .
-    .
