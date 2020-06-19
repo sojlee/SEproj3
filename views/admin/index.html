@@ -68,8 +68,8 @@
                                     <i class="menu-icon icon-flash_on"></i><span>주문</span><i class="accordion-icon fa fa-angle-left"></i>
                                 </a>
                                 <ul class="sub-menu">
-                                    <li><a href="ui-alerts.html">주문현황</a></li>  <!-- 주문현황 -->
-                                    <li><a href="ui-buttons.html">판매내역</a></li> <!-- 판매내역 -->
+                                    <li><a href="/sold">주문현황</a></li>  <!-- 주문현황 -->
+                                    <li><a href="/shipped">판매내역</a></li> <!-- 판매내역 -->
                                 </ul>
                             </li>
                             <li>
@@ -130,7 +130,7 @@
                                 <div class="panel panel-white stats-widget">
                                     <div class="panel-body">
                                         <div class="pull-left">
-                                            <span class="stats-number">$781,876</span>
+                                            <span class="stats-number"><%=income%>원</span>
                                             <p class="stats-info">총 매출</p>
                                         </div>
                                         <div class="pull-right">
@@ -143,11 +143,11 @@
                                 <div class="panel panel-white stats-widget">
                                     <div class="panel-body">
                                         <div class="pull-left">
-                                            <span class="stats-number">578,100</span>
+                                            <span class="stats-number"><%=orders%>건</span>
                                             <p class="stats-info">판매 건수</p>
                                         </div>
                                         <div class="pull-right">
-                                            <i class="icon-arrow_downward stats-icon"></i>
+                                            <i class="icon-arrow_upward stats-icon"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -156,7 +156,7 @@
                                 <div class="panel panel-white stats-widget">
                                     <div class="panel-body">
                                         <div class="pull-left">
-                                            <span class="stats-number">+23,356</span>
+                                            <span class="stats-number"><%=users%>명</span>
                                             <p class="stats-info">회원 수</p>
                                         </div>
                                         <div class="pull-right">

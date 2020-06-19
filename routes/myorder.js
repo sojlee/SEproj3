@@ -9,19 +9,32 @@ var pool = mysql.createPool({
 	user: dbConfig.user,
 	password: dbConfig.password,
 	database: dbConfig.database,
-  multipleStatements : true
+	multipleStatements : true,
+	dateStrings:'date'
 });
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+	var grade = req.session.grade;
+	if(grade != 2 || grade != 0 || grade != 1){
+		res.send("<script> alert('로그인이 필요합니다.'); history.back();</script>");
+	}
 	var total = 0;
+	var user = req.session.uid;
+	console.log(user);
 	pool.getConnection(function (err, connection) {
-		var selectreview = 'select order_o_num, product_p_code, amount from order_lists where (select o_num from orders where customer = ?);';
-		connection.query(selectreview, req.session.uid, function (err, rows) {
+		var selectOrder = 'SELECT * from orders where customer = ?;';
+		var so = mysql.format(selectOrder, user);
+		var selectreview = 'SELECT * from order_lists where order_o_num = (select o_num from orders where customer = ?);';
+		var sr = mysql.format(selectreview, user);
+		connection.query(so + sr, user, function (err, rows) {
 						if (err) console.error("err : " + err);
 						console.log("rows : " + JSON.stringify(rows));
-            
-						res.render('./shop/checkout.html', {session:req.session, rows:rows, total:total});
+						var orders = rows[0];
+						var lists = rows[1];
+						console.log(orders);
+						console.log(lists[0]);
+						res.render('./shop/myorder.html', {session:req.session, orders:orders, lists:lists});
 						connection.release();
 		});
 	});

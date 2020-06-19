@@ -54,7 +54,7 @@
                           </li>
                           <li>
                               <!-- 회원 관리 및 회원 정보 조회-->
-                              <a href="/userDB">
+                              <a href="회원관리.html">
                                   <i class="fa fa-user-o">&nbsp;&nbsp;&nbsp;</i><span>회원 관리</span>
                               </a>
                           </li>
@@ -184,37 +184,34 @@
                                 </div>
                                 <div class="panel-body">
                                    <div class="table-responsive">
-                                    <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
-                                        <thead>
-                                            <tr>
-                                                <th>상품 코드</th>
-                                                <th>상품 명</th>
-                                                <th>상품 수량</th>
-                                                <th>상품 가격</th>
-                                                <th>업데이트일</th>
-                                            </tr>
-                                        </thead>
-                                        <tfoot>
-                                          <tr>
-                                              <th>상품 코드</th>
-                                              <th>상품 명</th>
-                                              <th>상품 수량</th>
-                                              <th>상품 가격</th>
-                                              <th>업데이트일</th>
-                                          </tr>
-                                        </tfoot>
-                                        <tbody>
-                                          <% for(let i = 0; i < rows; i++) {%>
-                                            <tr>
-                                                <td><a href="/productDB/update/<%=p_code[i]%>"><%=p_code[i]%></td>
-                                                <td><a href="/productDB/update/<%=p_code[i]%>"><%=p_name[i]%></td>
-                                                <td><%=p_amount[i]%></td>
-                                                <td><%=p_price[i]%></td>
-                                                <td><%=p_update[i]%></td>
-                                            </tr>
-                                          <% } %>
-                                        </tbody>
-                                       </table>
+                                     <table id="example" class="display table" style="width: 100%; cellspacing: 0;">
+                                         <thead>
+                                             <tr>
+                                                 <th>주문 번호</th>
+                                                 <th>주문자명</th>
+                                                 <th>금액</th>
+                                                 <th>주문일</th>
+                                             </tr>
+                                         </thead>
+                                         <tfoot>
+                                           <tr>
+                                               <th>주문 번호</th>
+                                               <th>주문자명</th>
+                                               <th>금액</th>
+                                               <th>주문일</th>
+                                           </tr>
+                                         </tfoot>
+                                         <tbody>
+                                           <% for(var i = 0; i < rows.length; i++) {%>
+                                             <tr>
+                                                 <td><a href="/"><%=rows[i].o_num%></td>
+                                                 <td><a href="/"><%=rows[i].customer%></td>
+                                                 <td><%=rows[i].total%></td>
+                                                 <td><%=rows[i].o_date%></td>
+                                             </tr>
+                                           <% } %>
+                                         </tbody>
+                                        </table>
                                        <button type="button" onclick="location.href='/productDB/create'" class="btn btn-default">상품 추가하기</button>
                                     </div>
                                 </div>

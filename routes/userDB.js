@@ -17,10 +17,10 @@ var fs = require('fs');         // 파일 삭제 구현 목적
 /* GET users listing. */
 router.get('/', function(req, res, next) {
   var grade = req.session.grade;
-/*  if(grade != 0){
+	if(grade != 0){
     res.send("<script> alert('관리자 계정만 접근 가능합니다.'); history.back();</script>");
   }
-  else {*/
+  else {
     pool.getConnection(function (err, connection) {
           if(err) throw err;
           // Use the connection
@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
               // Don't use the connection here, it has been returned to the pool.
           });
       });
-  //}
+  }
 });
 
 router.get('/update/:id', function(req, res, next) {

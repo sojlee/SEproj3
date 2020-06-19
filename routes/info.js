@@ -13,6 +13,10 @@ var pool = mysql.createPool({
 
 /* Post users listing. */
 router.get('/', function(req, res, next) {
+	var grade = req.session.grade;
+	if(grade != 2 || grade != 0 || grade != 1){
+		res.send("<script> alert('로그인이 필요합니다.'); history.back();</script>");
+	}
   var email = req.session.email;
 	pool.getConnection(function(err, conn) {
 		if(err) throw err;

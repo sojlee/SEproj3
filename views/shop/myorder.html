@@ -6,7 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="">
 <meta name="author" content="M_Adnan">
-<title>FFORU - My Cart</title>
+<title>FFORU - My Order</title>
 
 <!-- SLIDER REVOLUTION 4.x CSS SETTINGS -->
 <link rel="stylesheet" type="text/css" href="./rs-plugin/css/settings.css" media="screen" />
@@ -141,7 +141,7 @@
   <section class="sub-bnr" data-stellar-background-ratio="0.5">
     <div class="position-center-center">
       <div class="container">
-        <h4>SHOPPING CART</h4>
+        <h4>My Order</h4>
       </div>
     </div>
   </section>
@@ -155,79 +155,73 @@
 
         <!-- Payments Steps -->
         <div class="shopping-cart text-center">
+          <!-- PRODUCTS -->
           <div class="cart-head">
             <ul class="row">
+
               <!-- PRODUCTS -->
               <li class="col-sm-2 text-left">
                 <h6>상품 이미지</h6>
               </li>
               <!-- NAME -->
               <li class="col-sm-4 text-left">
-                <h6>상품명</h6>
-              </li>
-              <!-- PRICE -->
-              <li class="col-sm-2">
-                <h6>상품 가격</h6>
+                <h6>상품 명</h6>
               </li>
               <!-- QTY -->
               <li class="col-sm-1">
                 <h6>수량</h6>
               </li>
-              <li class="col-sm-2">
+
+              <li class="col-sm-1">
                 <h6>총 금액</h6>
+              </li>
+              <li class="col-sm-1">
+                <h6>주문 일</h6>
               </li>
               <li class="col-sm-1"> </li>
             </ul>
           </div>
-          <% for (var i = 0; i < rows.length; i++) {%>
+          <% for (var i = 0; i < orders.length; i++) {%>
           <!-- Cart Details -->
           <ul class="row cart-details">
             <li class="col-sm-6">
               <div class="media">
                 <!-- Media Image -->
-                <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="<%=rows[i].cart_img%>" alt=""> </a> </div>
+                <div class="media-left media-middle"> <a href="#." class="item-img"> <img class="media-object" src="./uploads/cart-<%=lists[i].product_p_code%>.jpg" alt=""> </a> </div>
 
                 <!-- Item Name -->
                 <div class="media-body">
                   <div class="position-center-center">
-                    <h5><%=rows[i].p_name%></h5>
+                    <h5>흰 튤립</h5>
                   </div>
                 </div>
               </div>
             </li>
 
-            <!-- PRICE -->
-            <li class="col-sm-2">
-              <div class="position-center-center"> <span class="price"><%=rows[i].p_price%><small>won</small></span> </div>
-            </li>
-
             <!-- QTY -->
             <li class="col-sm-1">
               <div class="position-center-center">
-                <div class="quinty"><%=rows[i].amount%></div>
+                <div class="quinty"><%=lists[i].amount%></div>
               </div>
             </li>
 
             <!-- TOTAL PRICE -->
-            <li class="col-sm-2">
-              <div class="position-center-center"> <span class="price"><%=total[i]%><small>won</small></span> </div>
+            <li class="col-sm-1">
+              <div class="position-center-center"> <span><%=orders[i].total%><small>won</small></span> </div>
             </li>
 
-            <!-- REMOVE -->
+            <!-- TOTAL PRICE -->
             <li class="col-sm-1">
-              <div class="position-center-center"> <a href="#."><i class="icon-close"></i></a> </div>
+              <div class="position-center-center"> <span><%=orders[i].o_date%></span> </div>
             </li>
           </ul>
           <%}%>
         </div>
-        <li class="col-md-12">
-          <a href="/checkout" class="btn btn-big btn-dark">결제하기</a>
-        </li>
+
       </div>
 
     </section>
 
-  
 
     <!-- About -->
     <section class="small-about padding-top-150 padding-bottom-150">

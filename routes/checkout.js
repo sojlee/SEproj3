@@ -13,6 +13,10 @@ var pool = mysql.createPool({
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+	var grade = req.session.grade;
+	if(grade != 2 || grade != 0 || grade != 1){
+		res.send("<script> alert('로그인이 필요합니다.'); history.back();</script>");
+	}
 	var total = 0;
 	pool.getConnection(function (err, connection) {
 		var selectreview = 'select * from product as p join mycart as c on p.p_code = c.product_p_code where c.user_id = ?';
