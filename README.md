@@ -10,6 +10,9 @@ env:
 
 url
 - http://localhost:3000
+
+YouTube
+- https://www.youtube.com/watch?v=TO7gbKHvtGE&t=1s&ab_channel=%EC%9D%B4%EC%86%8C%EC%A0%95
     
 run
 
